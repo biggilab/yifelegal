@@ -13,3 +13,11 @@ defined('YII_DEBUG') or define('YII_DEBUG',true);
 
 require_once($yii);
 Yii::createWebApplication($config)->run();
+
+//////////////////////////////////////////////////////
+
+<li class="active"><a href="<?php echo $this->createUrl(Yii::app()->baseUrl."/classified/index")?>">Classifieds</a></li>
+                    <li><a href="<?php echo $this->createUrl(Yii::app()->baseUrl."/Main/page",array('view'=>'about'))?>">Auto</a></li>
+                    <li><a href="<?php echo $this->createUrl(Yii::app()->baseUrl."/Main/contact")?>">Auctiones</a></li>
+                    <li><a href="<?php echo $this->createUrl(Yii::app()->baseUrl."/Main/contact")?>">Jobs</a></li>
+                    

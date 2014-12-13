@@ -1,21 +1,28 @@
 <?php
-
+//
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+//Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extension/bootstrap');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
-
+	'name'=>'Yifelegal',
+    'defaultController' => 'main',
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+	// path aliases
+    'aliases' => array(
+        //yiistrap
+        'bootstrap' => realpath(__DIR__ . '/../extension/bootstrap'), // change this if necessary
+        'yiiwheels' => realpath(__DIR__ . '/../extension/yiiwheels'), // change if necessary for yiiwheels
+    ),
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'bootstrap.helpers.TbHtml',
 	),
 
 	'modules'=>array(
@@ -23,9 +30,12 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>’admin’,
+			'password'=>'yifelegal',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+            'generatorPaths'=>array(
+                                    'bootstrap.gii',
+		),
 		),
 		
 	),
@@ -36,34 +46,44 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+//        'bootstrap'=>array(
+//                             'class'=>'bootstrap.components.Bootstrap',
+//        ),
+        //yiistrap componet
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',   
+        ),
+        //yiwhill components
+        'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',   
+        ),
 		// uncomment the following to enable URLs in path-format
-		
+		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-				‘about’=>’main/about’,
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
+		*/
+		//'db'=>array(
+		//	'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+		//),
+		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=yifelegal',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'yifelegal',
+			'password' => 'yifelegal',
 			'charset' => 'utf8',
 		),
-		*/
+		
 		'errorHandler'=>array(
-			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
+			// use 'Main/error' action to display errors
+			'errorAction'=>'Main/error',
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -87,5 +107,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+        'location'=>'user',
 	),
 );
