@@ -1,0 +1,25 @@
+july 23 2014 
+
+change made
+
+* push process decided
+
+development will only be ushed to origin\
+on live server live will merge with development
+
+=============================
+augest 02 2014 
+
+stoped using yii-bootstrap
+start using yiistrap
+added custum jquery select dropdown from http://www.uibox.in/item/55 and https://github.com/derekpcollins/jquery-custom-select-menu
+thinking of using this select instead but not sure http://silviomoreto.github.io/bootstrap-select/
+interested in http://yiiwheels.2amigos.us/site/index extention for yiistrap;
+============================
+augest 03 2014
+
+*yiistrap integrated successful avoided conflict by coping bootstrap.css from the root/js   to protected/extension/bootstrap/css
+
+
+
+ 

@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 3, 2014, 3:28:23 PM
+    Author     : abi
+*/
+
+.classlvl select{
+    padding: 4px;
+    height: 50px;
+    min-width: 236px;
+}
+.classlvl select:active{
+   color: red;
+}
