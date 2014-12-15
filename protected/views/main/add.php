@@ -5,168 +5,171 @@ $this->pageTitle=Yii::app()->name;
 ?><link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fullPage.css" />
 <div class=" row">
     <div class="col-xs-12 navbar-fixed-top" id="myScrollspy" style="top: 50px; background:  #EFEFEF">
-            <ul class="nav">
-                <li><a class="active_" href="#section1"><h3>1</h3></a></li>
-                <li><a href="#section2"><h3>2</h3></a></li>
-                <li><a href="#section3"><h3>3</h3></a></li>
-                <li><a href="#section4"><h3>4</h3></a></li>
+        <ul class="nav"  id="myMenue">
+                <li data-menuanchor="firstPage"><a href="#section1"><h3>1</h3></a></li>
+                <li data-menuanchor="secondPage"><a href="#section2"><h3>2</h3></a></li>
+                <li data-menuanchor="thirdPage"><a href="#section3"><h3>3</h3></a></li>
+                <li data-menuanchor="fourthPage"><a href="#section4"><h3>4</h3></a></li>
             </ul>
     </div>
 </div>
+
 <div class="row classification_container" style="margin-top: 40px;">
-    <form class="form" id="addform">
-        <div class="col-xs-12 section1" id="section0">
-            <div class="col-xs-12 classlvl lvl0 text-center">
-                <h5>Select the AD type</h5>
-                 <?php 
-//                 echo TbHtml::dropDownList('lvl0', '', $addtype,
-//
-//                                                array(
-//                                                        'prompt'=>'Select AD type',
-//                                                        'ajax' => array(
-//                                                                        'type'=>'POST', 
-//                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
-//                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,0)",
-//                                                                        //'update'=>'#lvl2', 
-//                                                                        'success' => 'function(data){updateclasslvlselect(data,1);}',
-//                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>1),
-//                                                                        ),
-//                                                        'class'=>'btn-primary'
-//                                                    )
-//                                            );
-//               ?>
-                
-            </div><!-- End of section0-->
-            <div class="col-xs-12 classlvl lvl1 text-center hidden">
-               <h5>Select category</h5>
-                <?php 
-//                echo TbHtml::dropDownList('lvl1', '', CHtml::listData($classlvl1, "id", "name"),
-//
-//                                                array(
-//                                                        'prompt'=>'Select AD type',
-//                                                        'ajax' => array(
-//                                                                        'type'=>'POST', 
-//                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
-//                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,1)",
-//                                                                        //'update'=>'#lvl2', 
-//                                                                        'success' => 'function(data){updateclasslvlselect(data,2);}',
-//                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>2),
-//                                                                        ),
-//                                                        'class'=>'btn-primary'
-//                                                    )
-//                                            );
-               ?>
-                
-            </div><!-- End of classlvl1-->
-            <div class="col-xs-12 classlvl lvl2 hidden text-center">
-                <h5>Select sub-category</h5>
-                <?php 
-//                echo TbHtml::dropDownList('lvl2', '', array(''=>""),
-//
-//                                                array(
-//                                                        'prompt'=>'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp',
-//                                                        'ajax' => array(
-//                                                                        'type'=>'POST', 
-//                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController                                                               
-//                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,2)",
-//                                                                        //'update'=>'#city_name', //or 'success' => 'function(data){...handle the data in the way you want...}',
-//                                                                        'success' => 'function(data){updateclasslvlselect(data,3);}',
-//                                                                        'data'=>array('classlvl_id'=>'js:this.value','lvl'=>3),
-//                                                                        ),
-//                                                        'class'=>'btn-primary'
-//
-//                                                    ),
-//                                                array('class'=>'your_class_name')
-//
-//                                            );
-               ?>
+    <div id="fullpage">
+        <form class="form" id="addform">
+            <div class="col-xs-12 section" id="section1">
+                setion 1
+                <div class="col-xs-12 classlvl lvl0 text-center">
+                    <!--<h5>Select the AD type</h5>-->
+                     <?php 
+    //                 echo TbHtml::dropDownList('lvl0', '', $addtype,
+    //
+    //                                                array(
+    //                                                        'prompt'=>'Select AD type',
+    //                                                        'ajax' => array(
+    //                                                                        'type'=>'POST', 
+    //                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
+    //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,0)",
+    //                                                                        //'update'=>'#lvl2', 
+    //                                                                        'success' => 'function(data){updateclasslvlselect(data,1);}',
+    //                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>1),
+    //                                                                        ),
+    //                                                        'class'=>'btn-primary'
+    //                                                    )
+    //                                            );
+    //               ?>
 
+                </div><!-- End of section0-->
+                <div class="col-xs-12 classlvl lvl1 text-center hidden">
+                   <h5>Select category</h5>
+                    <?php 
+    //                echo TbHtml::dropDownList('lvl1', '', CHtml::listData($classlvl1, "id", "name"),
+    //
+    //                                                array(
+    //                                                        'prompt'=>'Select AD type',
+    //                                                        'ajax' => array(
+    //                                                                        'type'=>'POST', 
+    //                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
+    //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,1)",
+    //                                                                        //'update'=>'#lvl2', 
+    //                                                                        'success' => 'function(data){updateclasslvlselect(data,2);}',
+    //                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>2),
+    //                                                                        ),
+    //                                                        'class'=>'btn-primary'
+    //                                                    )
+    //                                            );
+                   ?>
+
+                </div><!-- End of classlvl1-->
+                <div class="col-xs-12 classlvl lvl2 hidden text-center">
+                    <h5>Select sub-category</h5>
+                    <?php 
+    //                echo TbHtml::dropDownList('lvl2', '', array(''=>""),
+    //
+    //                                                array(
+    //                                                        'prompt'=>'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp',
+    //                                                        'ajax' => array(
+    //                                                                        'type'=>'POST', 
+    //                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController                                                               
+    //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,2)",
+    //                                                                        //'update'=>'#city_name', //or 'success' => 'function(data){...handle the data in the way you want...}',
+    //                                                                        'success' => 'function(data){updateclasslvlselect(data,3);}',
+    //                                                                        'data'=>array('classlvl_id'=>'js:this.value','lvl'=>3),
+    //                                                                        ),
+    //                                                        'class'=>'btn-primary'
+    //
+    //                                                    ),
+    //                                                array('class'=>'your_class_name')
+    //
+    //                                            );
+                   ?>
+
+                </div>
+                   <div class="col-xs-12 classlvl hidden lvl3 text-center">
+                    <h4>select sub category</h4>
+                    <?php 
+    //                echo TbHtml::dropDownList('lvl3', '', array(''=>""),
+    //
+    //                                                array(
+    //                                                        'prompt'=>'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp',
+    //        //                                                'ajax' => array(
+    //        //                                                                'type'=>'POST', 
+    //        //                                                                'url'=>Yii::app()->createUrl('YourController/loadcities'), //or $this->createUrl('loadcities') if '$this' extends CController
+    //        //                                                                'update'=>'#city_name', //or 'success' => 'function(data){...handle the data in the way you want...}',
+    //        //                                                                'data'=>array('region_id'=>'js:this.value'),
+    //        //                                                                ),
+    //                                                        'class'=>'btn-primary'
+    //
+    //                                                    ),
+    //                                                array('class'=>'your_class_name')
+    //
+    //                                            );
+                   ?>
+
+                </div>
+
+            </div><!-- end of section 1 -->
+
+
+            <div class="col-xs-12 section " id="section2">
+                <h1>section2</h1>
+                As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:
             </div>
-               <div class="col-xs-12 classlvl hidden lvl3 text-center">
-                <h4>select sub category</h4>
-                <?php 
-//                echo TbHtml::dropDownList('lvl3', '', array(''=>""),
-//
-//                                                array(
-//                                                        'prompt'=>'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp',
-//        //                                                'ajax' => array(
-//        //                                                                'type'=>'POST', 
-//        //                                                                'url'=>Yii::app()->createUrl('YourController/loadcities'), //or $this->createUrl('loadcities') if '$this' extends CController
-//        //                                                                'update'=>'#city_name', //or 'success' => 'function(data){...handle the data in the way you want...}',
-//        //                                                                'data'=>array('region_id'=>'js:this.value'),
-//        //                                                                ),
-//                                                        'class'=>'btn-primary'
-//
-//                                                    ),
-//                                                array('class'=>'your_class_name')
-//
-//                                            );
-               ?>
+            <div class="col-xs-12 section " id="section3">
+                <h1>section3</h1>
+                As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
 
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                The returned hash will now look something like this:
             </div>
-               
-        </div><!-- end of section 1 -->
-        <hr/>
-        <div id="fullpage">
-        <div class="col-xs-12 section " id="section1">
-            <h1>section2</h1>
-            As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:
-        </div>
-        <div class="col-xs-12 section " id="section2">
-            <h1>section3</h1>
-            As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-The returned hash will now look something like this:
-        </div>
-        <div class="col-xs-12 section4 " id="section">
-            <h1>section4</h1>
-        </div>
-        <div class="col-xs-12 section5 " id="section">
-            <h1>section4</h1>
-        </div>
-        <div class="clearfix"></div>
-        </div>
-    </form>
+            <div class="col-xs-12 section " id="section4">
+                <h1>section4</h1>
+            </div>
+            <div class="col-xs-12 section " id="section5">
+                <h1>section4</h1>
+            </div>
+            <div class="clearfix"></div>
+            </div>
+        </form>
  </div>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fullPage.js"></script>
 <!-- This following line is needed only in case of using other easing effect rather than "linear", "swing" or "easeInQuart". You can also add the full jQuery UI instead of this file if you prefer -->
@@ -178,7 +181,9 @@ The returned hash will now look something like this:
 <script>
     $(document).ready(function() {
     $('#fullpage').fullpage({
-            resize:false});
+            resize:false,
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+            menu: '#myMenu'});
 });
 //    $(document).ready(function(){
 //
