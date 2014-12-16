@@ -20,8 +20,13 @@ $this->pageTitle=Yii::app()->name;
             <div class="col-xs-12 section" id="section1">
                 setion 1
                 <div class="col-xs-12 classlvl lvl0 text-center">
+                    <?php
+                        $model = CatLvl1::model()->findAll();
+                    
+                    ?>
                     <!--<h5>Select the AD type</h5>-->
                      <?php 
+                            
     //                 echo TbHtml::dropDownList('lvl0', '', $addtype,
     //
     //                                                array(
@@ -42,23 +47,7 @@ $this->pageTitle=Yii::app()->name;
                 </div><!-- End of section0-->
                 <div class="col-xs-12 classlvl lvl1 text-center hidden">
                    <h5>Select category</h5>
-                    <?php 
-    //                echo TbHtml::dropDownList('lvl1', '', CHtml::listData($classlvl1, "id", "name"),
-    //
-    //                                                array(
-    //                                                        'prompt'=>'Select AD type',
-    //                                                        'ajax' => array(
-    //                                                                        'type'=>'POST', 
-    //                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
-    //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,1)",
-    //                                                                        //'update'=>'#lvl2', 
-    //                                                                        'success' => 'function(data){updateclasslvlselect(data,2);}',
-    //                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>2),
-    //                                                                        ),
-    //                                                        'class'=>'btn-primary'
-    //                                                    )
-    //                                            );
-                   ?>
+                  
 
                 </div><!-- End of classlvl1-->
                 <div class="col-xs-12 classlvl lvl2 hidden text-center">
