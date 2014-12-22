@@ -18,32 +18,27 @@ $this->pageTitle=Yii::app()->name;
     <div id="fullpage">
         <form class="form" id="addform">
             <div class="col-xs-12 section" id="section1">
-                setion 1
                 <div class="col-xs-12 classlvl lvl0 text-center">
-                    <?php
-                        $model = CatLvl1::model()->findAll();
-                    
-                    ?>
-                    <!--<h5>Select the AD type</h5>-->
-                     <?php 
-                            
-    //                 echo TbHtml::dropDownList('lvl0', '', $addtype,
-    //
-    //                                                array(
-    //                                                        'prompt'=>'Select AD type',
-    //                                                        'ajax' => array(
-    //                                                                        'type'=>'POST', 
-    //                                                                        'url'=>Yii::app()->createUrl('main/getclasslvl'), //or $this->createUrl('loadcities') if '$this' extends CController
-    //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,0)",
-    //                                                                        //'update'=>'#lvl2', 
-    //                                                                        'success' => 'function(data){updateclasslvlselect(data,1);}',
-    //                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>1),
-    //                                                                        ),
-    //                                                        'class'=>'btn-primary'
-    //                                                    )
-    //                                            );
-    //               ?>
+                    <div id="cat-lvl-1">
+                        <h3>Select category</h3>
+                            <?php
+                                $model = CatLvl1::model()->findAll();
+                                echo "<select class='btn-primary' id='cat-lvl-1-select' data-next-lvl='2'>";
+                                foreach ($model as $onemodel)
+                                {
+                                    echo "<option value='.$onemodel->id.' >".$onemodel->name."</option>";
+                                }
+                                echo  "<option value='0'>Other</option></select>";
+                            ?>
 
+                        <input type="text" class="category-input hidden" id="cat-lvl-1-select-other"/>
+                    </div>
+                    <div id="cat-lvl-2">
+                        <h3>Select category</h3>
+                           
+
+                        <input type="text" class="category-input hidden" id="cat-lvl-2-select-other"/>
+                    </div>
                 </div><!-- End of section0-->
                 <div class="col-xs-12 classlvl lvl1 text-center hidden">
                    <h5>Select category</h5>
@@ -168,12 +163,33 @@ $this->pageTitle=Yii::app()->name;
 <!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.slimscroll.min.js"></script>
 <script>
+    var getcatlvllisturl = <?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>
+    function init_other(object)
+    {
+        if(object.val()==='0')
+        {
+            $("#"+object.attr("id")+"-other").removeClass("hidden").css({"height":object.css("height"),"border-radius":object.css("border-radius"),"width":object.css("width"),"border":"solid 1px"});
+        }
+        else
+        {
+            $("#"+object.attr("id")+"-other").addClass("hidden");
+             data = { lvl: object.attr("data-next-lvl"),
+                         id : object.val()
+                        };
+           var paramdata JSON.stringify(data);
+        }
+    }
     $(document).ready(function() {
     $('#fullpage').fullpage({
             resize:false,
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
             menu: '#myMenu'});
+    $("#cat-lvl-1-select").change(function(){
+            init_other($(this));
+    })  ;  
+        
 });
+
 //    $(document).ready(function(){
 //
 ////        $(function() {
@@ -246,3 +262,22 @@ $this->pageTitle=Yii::app()->name;
 ////        $('#lvl'+lvl).parent().removeClass("hidden");
 //    }
     </script>
+    
+                            <?php 
+
+        //                 echo TbHtml::dropDownList('lvl0', '', $addtype,
+        //
+        //                                                array(
+        //                                                        'prompt'=>'Select AD type',
+        //                                                        'ajax' => array(
+        //                                                                        'type'=>'POST', 
+        //                                                                        'url'=>Yii::app()->createUrl('classified/getcatlvllist'), //or $this->createUrl('loadcities') if '$this' extends CController
+        //                                                                        'beforeSend' =>"handle_other_select_lvl_1(this.value,0)",
+        //                                                                        //'update'=>'#lvl2', 
+        //                                                                        'success' => 'function(data){updateclasslvlselect(data,1);}',
+        //                                                                        'data'=>array('classlvl_id'=>'js:this.value' ,'lvl'=>1),
+        //                                                                        ),
+        //                                                        'class'=>'btn-primary'
+        //                                                    )
+        //                                            );
+        //               ?>

@@ -39,6 +39,7 @@ class MainController extends Controller
 //        $classlvl2=  Classleveltwo::model()->findAll("id> :ip", array(":ip"=>0));
         $addtype= array("1"=>"classified");
         //$classlvl3=  
+       
 		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/mainadd.css');	
 		$this->layout="//layouts/mainindex";
 		$this->render('add' );//,array("classlvl1"=>$classlvl1,"addtype"=>$addtype));

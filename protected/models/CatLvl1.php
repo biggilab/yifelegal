@@ -6,6 +6,8 @@
  * The followings are the available columns in table 'tbl_cat_lvl_1':
  * @property integer $id
  * @property string $name
+ * @property string $tbl_cat_lvl_1col
+ * @property integer $active
  *
  * The followings are the available model relations:
  * @property CatLvl2[] $catLvl2s
@@ -30,10 +32,12 @@ class CatLvl1 extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
+			array('active', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
+			array('tbl_cat_lvl_1col', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, name, tbl_cat_lvl_1col, active', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +62,8 @@ class CatLvl1 extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'tbl_cat_lvl_1col' => 'Tbl Cat Lvl 1col',
+			'active' => 'Active',
 		);
 	}
 
@@ -81,6 +87,8 @@ class CatLvl1 extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('tbl_cat_lvl_1col',$this->tbl_cat_lvl_1col,true);
+		$criteria->compare('active',$this->active);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
