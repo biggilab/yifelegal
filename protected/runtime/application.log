@@ -46,3 +46,101 @@ REQUEST_URI=/index.php?r=Main/add
 in /Library/WebServer/Documents/web/yifelegal/protected/views/main/add.php (21)
 in /Library/WebServer/Documents/web/yifelegal/protected/controllers/MainController.php (44)
 in /Library/WebServer/Documents/web/yifelegal/index.php (13)
+2014/12/22 16:08:41 [error] [exception.CDbException] exception 'CDbException' with message 'Table "tbl_cat_lvl_2" does not have a column named "CatLvl1".' in /Library/WebServer/Documents/yii/framework/db/schema/CDbCommandBuilder.php:694
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/db/ar/CActiveRecord.php(1538): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(77): CActiveRecord->findAllByAttributes(Array)
+#2 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionGetCatLvlList()
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('getcatlvllist')
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/getc...')
+#8 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+HTTP_REFERER=http://www.biggilab.co/index.php?r=Main/add
+---
+2014/12/22 16:09:02 [error] [exception.CDbException] exception 'CDbException' with message 'Table "tbl_cat_lvl_2" does not have a column named "CatLvl1".' in /Library/WebServer/Documents/yii/framework/db/schema/CDbCommandBuilder.php:694
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/db/ar/CActiveRecord.php(1538): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(77): CActiveRecord->findAllByAttributes(Array)
+#2 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionGetCatLvlList()
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('getcatlvllist')
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/getc...')
+#8 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+HTTP_REFERER=http://www.biggilab.co/index.php?r=Main/add
+---
+2014/12/22 16:10:52 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:78)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (78)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2014/12/22 16:13:09 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:78)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (78)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2014/12/22 16:14:33 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:79)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (79)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2014/12/23 14:40:02 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:79)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (79)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2014/12/23 14:40:11 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:79)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (79)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2014/12/23 14:41:01 [error] [php] Undefined property: stdClass::$data (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:80)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/getcatlvllist
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (80)
+in /Library/WebServer/Documents/yifelegal/index.php (13)

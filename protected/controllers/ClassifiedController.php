@@ -33,11 +33,11 @@ class ClassifiedController extends Controller
            
             if($_POST['lvl']==2)
             {
-                $classlvlmodel=  Classleveltwo::model()->findAllByAttributes(array("class_level_one_id"=>$_POST['classlvl_id']));
+                $classlvlmodel=  Classleveltwo::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
             }
             elseif ( $_POST['lvl']==3) 
             {
-                $classlvlmodel=  Classlevelthree::model()->findAllByAttributes(array("class_level_two_id"=>$_POST['classlvl_id']));
+                $classlvlmodel=  Classlevelthree::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
             }
             elseif ( $_POST['lvl']==1) 
             {
@@ -70,26 +70,28 @@ class ClassifiedController extends Controller
         {
             $result = new stdClass();
             $result->error=true;
+            
             $data = json_decode($_POST["data"]);
+            Yii::log($_POST["data"]);
             $lvl=$data->lvl;
             if($lvl==2)
             {
-                $classlvlmodel= CatLvl2::model()->findAllByAttributes(array("CatLvl1"=>$data->id));
-                $result->data.="<select class='btn-primary' id='cat-lvl-2-select'>";
+                $classlvlmodel= CatLvl2::model()->findAllByAttributes(array("cat_lvl_1_id"=>$data->id));
+                $result->data="<select class='btn-primary' id='cat-lvl-2-select'>";
                 foreach ($classlvlmodel as $onemodel)
                 {
-                   $result->data.= "<option value='.$onemodel->id.' >".$onemodel->name."</option>";
+                   $result->data.= "<option value='$onemodel->id' >".$onemodel->name."</option>";
                 }
                 $result->data.=  "<option value='0'>Other</option></select><input type='text' class='category-input hidden' id='cat-lvl-2-select-other'/>";
                 $result->error=FALSE;
             }
             if($lvl==3)
             {
-                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("CatLvl2"=>$data->id));
+                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_2_id"=>$data->id));
                 $result->data.="<select class='btn-primary' id='cat-lvl-3-select'>";
                 foreach ($classlvlmodel as $onemodel)
                 {
-                   $result->data.= "<option value='.$onemodel->id.' >".$onemodel->name."</option>";
+                   $result->data.= "<option value='$onemodel->id' >".$onemodel->name."</option>";
                 }
                 $result->data.=  "<option value='0'>Other</option></select><input type='text' class='category-input hidden' id='cat-lvl-3-select-other'/>";
                 $result->error=FALSE;

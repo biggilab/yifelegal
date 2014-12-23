@@ -26,7 +26,7 @@ $this->pageTitle=Yii::app()->name;
                                 echo "<select class='btn-primary' id='cat-lvl-1-select' data-next-lvl='2'>";
                                 foreach ($model as $onemodel)
                                 {
-                                    echo "<option value='.$onemodel->id.' >".$onemodel->name."</option>";
+                                    echo "<option value='$onemodel->id' >".$onemodel->name."</option>";
                                 }
                                 echo  "<option value='0'>Other</option></select>";
                             ?>
@@ -36,8 +36,6 @@ $this->pageTitle=Yii::app()->name;
                     <div id="cat-lvl-2">
                         <h3>Select category</h3>
                            
-
-                        <input type="text" class="category-input hidden" id="cat-lvl-2-select-other"/>
                     </div>
                 </div><!-- End of section0-->
                 <div class="col-xs-12 classlvl lvl1 text-center hidden">
@@ -163,7 +161,7 @@ $this->pageTitle=Yii::app()->name;
 <!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.slimscroll.min.js"></script>
 <script>
-    var getcatlvllisturl = <?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>
+    var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
     function init_other(object)
     {
         if(object.val()==='0')
@@ -172,11 +170,26 @@ $this->pageTitle=Yii::app()->name;
         }
         else
         {
+            $("#cat-lvl-"+object.attr("data-next-lvl")).empty();
             $("#"+object.attr("id")+"-other").addClass("hidden");
-             data = { lvl: object.attr("data-next-lvl"),
+             var data = { lvl: object.attr("data-next-lvl"),
                          id : object.val()
-                        };
-           var paramdata JSON.stringify(data);
+                        }
+           var paramdata= JSON.stringify(data);
+           $.post(
+			getcatlvllisturl,
+			{ data: paramdata },
+			function(data)
+			{
+                var result = JSON.parse(data);
+                if(result.error===false)
+                {
+                   $("#cat-lvl-"+object.attr("data-next-lvl")).append(result.data);
+                   $("#cat-lvl-"+object.attr("data-next-lvl")+"-select").change(function(){
+                                  init_other($(this));
+                            })  ;  
+                }
+            });
         }
     }
     $(document).ready(function() {
@@ -187,6 +200,7 @@ $this->pageTitle=Yii::app()->name;
     $("#cat-lvl-1-select").change(function(){
             init_other($(this));
     })  ;  
+    
         
 });
 
