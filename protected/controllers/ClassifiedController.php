@@ -77,23 +77,31 @@ class ClassifiedController extends Controller
             if($lvl==2)
             {
                 $classlvlmodel= CatLvl2::model()->findAllByAttributes(array("cat_lvl_1_id"=>$data->id));
-                $result->data="<select class='btn-primary' id='cat-lvl-2-select'>";
+                $result->data="<h5>Select sub category</h5><select class='btn btn-lg' id='cat-lvl-2-select' name='cat-lvl-2' id='cat-lvl-2-select' data-next-lvl='3'><option value='-1'></option>";
+                if(count($classlvlmodel)==0)
+                {
+                    $result->empty=1;
+                }
                 foreach ($classlvlmodel as $onemodel)
                 {
                    $result->data.= "<option value='$onemodel->id' >".$onemodel->name."</option>";
                 }
-                $result->data.=  "<option value='0'>Other</option></select><input type='text' class='category-input hidden' id='cat-lvl-2-select-other'/>";
+                $result->data.=  "<option value='0'>Other</option></select><input type='text' class='category-input hidden' id='cat-lvl-2-select-other' name='cat-lvl-2-select-other' placeholder='enter category'/>";
                 $result->error=FALSE;
             }
             if($lvl==3)
             {
                 $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_2_id"=>$data->id));
-                $result->data.="<select class='btn-primary' id='cat-lvl-3-select'>";
+                $result->data="<h6>Select sub-category</h6><select class='btn btn-lg' name='cat-lvl-3' id='cat-lvl-3-select'><option value='-1'></option>";
+                  if(count($classlvlmodel)==0)
+                {
+                    $result->empty=1;
+                }
                 foreach ($classlvlmodel as $onemodel)
                 {
                    $result->data.= "<option value='$onemodel->id' >".$onemodel->name."</option>";
                 }
-                $result->data.=  "<option value='0'>Other</option></select><input type='text' class='category-input hidden' id='cat-lvl-3-select-other'/>";
+                $result->data.=  "<option value='0'>Other</option></select><input type='text' name='cat-lvl-3-select-other' class='category-input hidden' id='cat-lvl-3-select-other' placeholder='enter category'/>";
                 $result->error=FALSE;
             }
             print CJSON::encode($result);

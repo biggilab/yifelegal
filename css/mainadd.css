@@ -8,6 +8,40 @@ and open the template in the editor.
     Author     : abi
 */
 
+/*this is copied from mainindex view which was missplaced*/
+div#step_menu_container ul li{
+    display: inline-block;
+    margin: 0px 4px;
+    padding: 2px;
+}
+div#step_menu_container ul li a h3{
+    
+    margin: 0px ;
+    padding: 0;
+}
+div#step_menu_container ul li a.active_{
+    
+    background:   #DD1144;
+    padding: 7px;
+    color: #fff;
+	border-radius: 50%;
+}
+div#step_menu_container ul li a{
+    padding: 2px 0px;
+    background:  #EFF4FA;
+    padding: 7px;
+    color:  #002a80;
+	border-radius: 50%;
+}
+div#step_menu_container{
+    //margin-bottom: 30px;
+    
+}
+div#step_menu_container ul {
+    text-align: center;
+    //position: fixed;
+}
+/*this is copied from mainindex view which was missplaced*/
 .classlvl select{
     padding: 4px;
     height: 50px;
@@ -15,4 +49,45 @@ and open the template in the editor.
 }
 .classlvl select:active{
    color: red;
+}
+#cat-lvl-1, cat-lvl-2, cat-lvl-3
+{
+    margin: 2%;
+}
+.category-input{
+    margin-left: 2%;
+    padding-left: 2%;
+    border: solid 1px #ccc;
+}
+#btn-back , #btn-next{
+    border: solid 1px #ccc;
+    color: #000000;
+    width: 15%;
+    margin: 1%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-box-border-radius: 30px;
+    background: #EFEFEF;
+}
+#btn-next{
+    border: solid 1px #EF0E0E;
+    color: #FFF;
+    width: 15%;
+    background: #C00000;
+}
+#btn-next:active,#btn-next:hover{
+    background: #EF0E0E;
+    border: solid 1px #C00000;
+}
+#btn-back:active,#btn-back:hover{
+   background: #CECECE;
+}
+.btn:focus, .category-input:focus {
+  outline: #CECECE;
+  outline: 5px auto #CECECE;
+  outline-offset: -2px;
+}
+select.btn{
+    border: solid 1px #ccc;
+    
 }

@@ -15,14 +15,14 @@ return array(
 	// path aliases
     'aliases' => array(
         //yiistrap
-        'bootstrap' => realpath(__DIR__ . '/../extension/bootstrap'), // change this if necessary
-        'yiiwheels' => realpath(__DIR__ . '/../extension/yiiwheels'), // change if necessary for yiiwheels
+//        'bootstrap' => realpath(__DIR__ . '/../extension/bootstrap'), // change this if necessary
+//        'yiiwheels' => realpath(__DIR__ . '/../extension/yiiwheels'), // change if necessary for yiiwheels
     ),
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'bootstrap.helpers.TbHtml',
+//		'bootstrap.helpers.TbHtml',
 	),
 
 	'modules'=>array(
@@ -33,9 +33,9 @@ return array(
 			'password'=>'yifelegal',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-            'generatorPaths'=>array(
-                                    'bootstrap.gii',
-		),
+//            'generatorPaths'=>array(
+//                                    'bootstrap.gii',
+//		),
 		),
 		
 	),
@@ -50,13 +50,13 @@ return array(
 //                             'class'=>'bootstrap.components.Bootstrap',
 //        ),
         //yiistrap componet
-        'bootstrap' => array(
-            'class' => 'bootstrap.components.TbApi',   
-        ),
+//        'bootstrap' => array(
+//            'class' => 'bootstrap.components.TbApi',   
+//        ),
         //yiwhill components
-        'yiiwheels' => array(
-            'class' => 'yiiwheels.YiiWheels',   
-        ),
+//        'yiiwheels' => array(
+//            'class' => 'yiiwheels.YiiWheels',   
+//        ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

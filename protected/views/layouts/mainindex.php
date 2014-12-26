@@ -1,13 +1,13 @@
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html>
-    <?php Yii::app()->bootstrap->register(); ?>
+    <?php // Yii::app()->bootstrap->register(); ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="en">
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css.less" media="screen, projection">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
+	<!--<link rel="stylesheet" type="text/css" href="<?php //echo Yii::app()->request->baseUrl; ?>/css/screen.css.less" media="screen, projection">-->
+	<!--<link rel="stylesheet" type="text/css" href="<?php //echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">-->
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
 	<![endif]-->
@@ -15,7 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/blockScroll.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.sidr.dark.css">
-    
+            <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
+
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     
     <style>
@@ -145,38 +146,7 @@ html,body,div.index-search-form-container, body div.container{
 #sidr ul li i{
 	margin-right: 20px;
 }
-div#myScrollspy ul li{
-    display: inline-block;
-    margin: 0px 4px;
-    padding: 2px;
-}
-div#myScrollspy ul li a h3{
-    
-    margin: 0px ;
-    padding: 0;
-}
-div#myScrollspy ul li a.active_{
-    
-    background:   #DD1144;
-    padding: 7px;
-    color: #fff;
-	border-radius: 50%;
-}
-div#myScrollspy ul li a{
-    padding: 2px 0px;
-    background:  #EFF4FA;
-    padding: 7px;
-    color:  #002a80;
-	border-radius: 50%;
-}
-div#myScrollspy{
-    //margin-bottom: 30px;
-    
-}
-div#myScrollspy ul {
-    text-align: center;
-    //position: fixed;
-}
+
 .circle {
     background:  #7aba7b;
 	border-radius: 50%;
@@ -258,8 +228,9 @@ div#myScrollspy ul {
     <div class="sidr-overlay sidr-overlay-fixed"></div>
 
 <?php 
-//Yii::app()->clientScript->registerScriptFile("//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
-//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.1.min.js');
+Yii::app()->clientScript->registerScriptFile("//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.1.min.js');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/bootstrap.js'); 
 //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/custom-select-menu.jquery.min.js');
 //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/bootstrap-select.js');
 ?>
