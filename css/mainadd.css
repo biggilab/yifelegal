@@ -91,3 +91,36 @@ select.btn{
     border: solid 1px #ccc;
     
 }
+input[type=text]{
+    border-radius: 18px;
+    border: solid 1px #ccc;
+}
+input:focus, .category-input:focus {
+  outline: none;
+  /*outline: 5px auto #CECECE;*/
+  outline-offset: -2px;
+}
+.width-80{
+    width: 80%;
+}
+.section2-input-text{
+    width: 80%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 2%;
+    font-weight: bold;
+    border-left: solid 1px #EF0E0E !important;
+    border-right: solid 1px #EF0E0E !important;
+}
+.col-xs-3 label{
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #C00000;
+    /*font-family:  sans-serif;*/
+}
+.bootstrap-switch-handle-on{
+    color: black;
+}
+

@@ -1,7 +1,7 @@
 var getcatlvllisturl 
     function init_other(object)
     {
-        if(object.val()==='0')
+        if(object.val()<='0')
         {
             $("#cat-lvl-"+object.attr("data-next-lvl")).empty();
             $("#"+object.attr("id")+"-other").removeClass("hidden").css({"height":object.css("height"),"border-radius":object.css("border-radius"),"width":object.css("width")});

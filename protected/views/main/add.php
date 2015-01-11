@@ -15,106 +15,121 @@ $this->pageTitle=Yii::app()->name;
 
 </div>
 
-<div class="row classification_container" style="margin-top: 40px;">
-    <div id="fullpage">
+<div class="row-fluid classification_container" style="margin-top: 40px;">
+    <div id="fullpage" class="col-xs-12">
         <form class="form" id="addform">
-            <div class="col-xs-12 section" id="section1">
-                <div class="col-xs-12 classlvl lvl0 text-center">
-                    <div id="cat-lvl-1">
-                        <h3>Select category</h3>
-                            <?php
-                                $model = CatLvl1::model()->findAll();
-                                echo "<select class='btn btn-lg' id='cat-lvl-1-select' data-next-lvl='2' name='cat-lvl-1' id='cat-lvl-1-select'><option value='-1'></option>";
-                                foreach ($model as $onemodel)
-                                {
-                                    echo "<option value='$onemodel->id' >".$onemodel->name."</option>";
-                                }
-                                echo  "<option value='0'>Other</option></select>";
-                            ?>
+            <div class="row-fluid">
+                <!--</div> end of section 1 -->
+                <div class="col-xs-12 section" id="section1">
+                    <div class="col-xs-12 classlvl lvl0 text-center">
+                        <div id="cat-lvl-1">
+                            <h3>Select category</h3>
+                                <?php
+                                    $model = CatLvl1::model()->findAll();
+                                    echo "<select class='btn btn-lg' id='cat-lvl-1-select' data-next-lvl='2' name='cat-lvl-1' id='cat-lvl-1-select'><option value='-1'></option>";
+                                    foreach ($model as $onemodel)
+                                    {
+                                        echo "<option value='$onemodel->id' >".$onemodel->name."</option>";
+                                    }
+                                    echo  "<option value='0'>Other</option></select>";
+                                ?>
 
-                        <input type="text" class="category-input hidden" id="cat-lvl-1-select-other" placeholder="enter category" name='cat-lvl-1-select-other'/>
+                            <input type="text" class="category-input hidden required" id="cat-lvl-1-select-other" placeholder="enter category" name='cat-lvl-1-select-other'/>
+                        </div>
+                        <div id="cat-lvl-2">
+
+
+                        </div>
+                        <div id="cat-lvl-3">
+
+
+                        </div>
+                        <div id="cat-btn-container" class="text-right">
+                            <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#section2" id="btn-next" class="btn btn-lg">Next</a>
+                        </div>
                     </div>
-                    <div id="cat-lvl-2">
-                        
-                           
+                    <!-- End of section1-->
+
+                </div>
+                <!--</div> section 2 -->
+                <div class="col-xs-12 section " id="section2">
+                    
+                    <div class="row-fluid">
+<!--                        <div class="col-xs-12 text-center">
+                            <h3>Step 2</h3>
+                        </div>-->
+                        <div class="col-xs-3 text-right">
+                            <label>Title</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text" placeholder="Title" name="title" id="title"/>
+                        </div>
+                        <div class="clearfix"></div>    
+                        <div class="col-xs-3 text-right">
+                            <label>Phone</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text" placeholder="phone" name="phone" id="phone"/>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-xs-3 text-right">
+                            <label>Price</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text" placeholder="Price" name="price" id="price"/>
+                        </div>
+                        <div class="clearfix"></div> 
+                        <div class="col-xs-3 text-right">
+                            <label>Negotiable</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
+                        </div>
+                        <div class="clearfix"></div> 
+                        <div id="cat-btn-container" class="col-xs-12 text-right">
+                                <a href="#section1" id="btn-back" class="btn btn-lg">Back</a><a href="#section3" id="btn-next" class="btn btn-lg">Next</a>
+                        </div>
                     </div>
-                    <div id="cat-lvl-3">
-                       
-                           
-                    </div>
+                    
+                </div>
+                <!--</div> end of section 2 -->
+                <div class="col-xs-12 section " id="section3">
+                    <h1>section3</h1>
+                    As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
+
+                    The returned hash will now look something like this:
                     <div id="cat-btn-container" class="text-right">
-                        <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#section2" id="btn-next" class="btn btn-lg">Next</a>
+                            <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#" id="btn-next" class="btn btn-lg">Post</a>
                     </div>
-                </div><!-- End of section0-->
-               
-            </div>
-
-            <!--</div> end of section 1 -->
-
-
-            <div class="col-xs-12 section " id="section2">
-                <h1>section2</h1>
-                As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:
-                <div id="cat-btn-container" class="text-right">
-                        <a href="#section1" id="btn-back" class="btn btn-lg">Back</a><a href="#section3" id="btn-next" class="btn btn-lg">Next</a>
                 </div>
-            </div>
-            <div class="col-xs-12 section " id="section3">
-                <h1>section3</h1>
-                As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                The returned hash will now look something like this:
-                <div id="cat-btn-container" class="text-right">
-                        <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#" id="btn-next" class="btn btn-lg">Post</a>
+                <div class="col-xs-12 section " id="section4">
+                    <h1>section4</h1>
                 </div>
+                <div class="col-xs-12 section " id="section5">
+                    <h1>section5</h1>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="col-xs-12 section " id="section4">
-                <h1>section4</h1>
-            </div>
-            <div class="col-xs-12 section " id="section5">
-                <h1>section5</h1>
-            </div>
-            <div class="clearfix"></div>
         </form>
     </div>
 </div>
@@ -125,6 +140,7 @@ $this->pageTitle=Yii::app()->name;
 
 <!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/bootstrap-switch.min.js'; ?>"></script>
 <script>
     var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
 //    function init_other(object)
@@ -189,6 +205,8 @@ $this->pageTitle=Yii::app()->name;
 //        return data;
 //    }
     $(document).ready(function() {
+    $(".checkbox-switch").bootstrapSwitch();
+    
     $('#fullpage').fullpage({
             resize:false,
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
