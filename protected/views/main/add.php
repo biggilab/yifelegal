@@ -66,13 +66,6 @@ $this->pageTitle=Yii::app()->name;
                         </div>
                         <div class="clearfix"></div>    
                         <div class="col-xs-3 text-right">
-                            <label>Phone</label>
-                        </div>
-                        <div class="col-xs-9">
-                            <input type="text" class="section2-input-text" placeholder="phone" name="phone" id="phone"/>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-xs-3 text-right">
                             <label>Price</label>
                         </div>
                         <div class="col-xs-9">
@@ -86,6 +79,40 @@ $this->pageTitle=Yii::app()->name;
                             <input class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
                         </div>
                         <div class="clearfix"></div> 
+                        <div class="col-xs-3 text-right">
+                            <label>Condition</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <select class='btn btn-lg' id='condition-select'  name='condition-select'>
+                                <option value="New-inside-original-box">New (inside original box)</option>
+                                <option value="New-out-of-original-box">New (out of original box)</option>
+                                <option value="slightly-used">Slightly used</option>
+                                <option value="used-with-minor-faults">Used with minor faults</option>
+                                <option value="used-not-working">Used, not working</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>   
+                        <div class="col-xs-3 text-right">
+                            <label>Brand</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text section2-input-text-not-imp" placeholder="Brand" name="brand" id="brand"/>
+                        </div>
+                        <div class="clearfix"></div> 
+                        <div class="col-xs-3 text-right">
+                            <label>Model</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text section2-input-text-not-imp" placeholder="model" name="model" id="model"/>
+                        </div>
+                        <div class="clearfix"></div> 
+                         <div class="col-xs-3 text-right">
+                            <label>Year</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="section2-input-text section2-input-text-not-imp" placeholder="year of production" name="year" id="model"/>
+                        </div>
+                        <div class="clearfix"></div> 
                         <div id="cat-btn-container" class="col-xs-12 text-right">
                                 <a href="#section1" id="btn-back" class="btn btn-lg">Back</a><a href="#section3" id="btn-next" class="btn btn-lg">Next</a>
                         </div>
@@ -93,37 +120,43 @@ $this->pageTitle=Yii::app()->name;
                     
                 </div>
                 <!--</div> end of section 2 -->
+                <!-- SECTION 3-->
                 <div class="col-xs-12 section " id="section3">
-                    <h1>section3</h1>
-                    As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:As computers get faster you will want to increase the cost (number of rounds), and for high security applications you can: increase the rounds; use a more random salt generator; or generate a hash using multiple hashing mechanisms in sequence.
-
-                    The returned hash will now look something like this:
-                    <div id="cat-btn-container" class="text-right">
-                            <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#" id="btn-next" class="btn btn-lg">Post</a>
+                    
+                    <div class="row-fluid">
+                        <div class="col-xs-4 text-right">
+                            <label>Description</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <textarea name="description" placeholder="Add more description to your Post"></textarea>
+                        </div>
+                        <div class="clearfix"></div> 
+                        <div class="col-xs-4 text-right">
+                            <label>Phone</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" class="section2-input-text" placeholder="phone" name="phone" id="phone"/>
+                        </div>
+                        <div class="clearfix"></div>
+                         <div class="col-xs-4 text-right">
+                            <label>Are you a broker?</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <input class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
+                        </div>
+                        <div class="clearfix"></div> 
+                        
+                    </div>
+                    <div id="cat-btn-container" class="col-xs-12 text-right">
+                        <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#section4" id="btn-next" class="btn btn-lg">Next</a>
                     </div>
                 </div>
+                <!-- END OF SECTION 3 -->
                 <div class="col-xs-12 section " id="section4">
                     <h1>section4</h1>
+                    <div id="cat-btn-container" class="text-right">
+                            <a href="#section3" id="btn-back" class="btn btn-lg">Back</a><a href="#" id="btn-next" class="btn btn-lg">Post</a>
+                    </div>
                 </div>
                 <div class="col-xs-12 section " id="section5">
                     <h1>section5</h1>
