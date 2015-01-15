@@ -314,3 +314,43 @@ Stack trace:
 REQUEST_URI=/index.php?r=Main/add
 HTTP_REFERER=http://www.biggilab.co/
 ---
+2015/01/15 11:14:49 [error] [exception.CException] exception 'CException' with message 'CHttpRequest and its behaviors do not have a method or closure named "baseUrl".' in /Library/WebServer/Documents/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Library/WebServer/Documents/yifelegal/protected/views/main/add.php(192): CComponent->__call('baseUrl', Array)
+#1 /Library/WebServer/Documents/yifelegal/protected/views/main/add.php(192): CHttpRequest->baseUrl('images')
+#2 /Library/WebServer/Documents/yii/framework/web/CBaseController.php(126): require('/Library/WebSer...')
+#3 /Library/WebServer/Documents/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Library/WebSer...', NULL, true)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(869): CBaseController->renderFile('/Library/WebSer...', NULL, true)
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(782): CController->renderPartial('add', NULL, true)
+#6 /Library/WebServer/Documents/yifelegal/protected/controllers/MainController.php(52): CController->render('add')
+#7 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): MainController->actionAdd()
+#8 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('add')
+#12 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Main/add')
+#13 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=Main/add
+---
+2015/01/15 11:15:35 [error] [exception.CException] exception 'CException' with message 'CHttpRequest and its behaviors do not have a method or closure named "baseUrl".' in /Library/WebServer/Documents/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Library/WebServer/Documents/yifelegal/protected/views/main/add.php(192): CComponent->__call('baseUrl', Array)
+#1 /Library/WebServer/Documents/yifelegal/protected/views/main/add.php(192): CHttpRequest->baseUrl('images')
+#2 /Library/WebServer/Documents/yii/framework/web/CBaseController.php(126): require('/Library/WebSer...')
+#3 /Library/WebServer/Documents/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Library/WebSer...', NULL, true)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(869): CBaseController->renderFile('/Library/WebSer...', NULL, true)
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(782): CController->renderPartial('add', NULL, true)
+#6 /Library/WebServer/Documents/yifelegal/protected/controllers/MainController.php(52): CController->render('add')
+#7 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): MainController->actionAdd()
+#8 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('add')
+#12 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Main/add')
+#13 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=Main/add
+---

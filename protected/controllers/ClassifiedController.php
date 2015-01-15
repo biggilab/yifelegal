@@ -64,6 +64,18 @@ class ClassifiedController extends Controller
         echo $result=CJSON::encode($result);
     }
     }
+    public function actionUploadAdImage()
+    {
+        
+    }
+    public function actionAddnewclassified()
+    {
+        if(isset($_POST["data"]))
+        {
+            $data = json_decode($_POST["data"]);
+            print CJSON::encode($data);
+        }
+    }
     public function actionGetCatLvlList()
     {
         if(isset($_POST["data"]))

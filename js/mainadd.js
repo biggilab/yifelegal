@@ -1,4 +1,5 @@
-var getcatlvllisturl 
+var getcatlvllisturl ;
+var addnewclassifiedurl;
     function init_other(object)
     {
         if(object.val()<='0')
@@ -59,6 +60,37 @@ var getcatlvllisturl
             }
         }
         return data;
+    }
+    function collect_step_2_data()
+    {
+        return  {
+                    title :     $("#title").val(),
+                    price :     $("#price").val(),
+                    negotiable: $("#negotiable").is(":checked"),
+                    condition:  $("#condition-select").val(),
+                    brand :     $("#brand").val(),
+                    model :     $("#model").val(),
+                    year :      $("#year").val()
+                }
+    }
+    function savenewpost()
+    {
+        var data= {
+                    st1_data:collect_step_1_data(),
+                    st2_data:collect_step_2_data(),
+                    st3_data:{
+                               description:$("#description").val(),
+                               broker:$("#broker").is(":checked"),
+                             }
+                  }
+        var paramDATA = JSON.stringify(data);
+        $.post(
+		addnewclassifiedurl,
+		{ data: paramDATA },
+		function(data) {
+                    var result = JSON.parse(data);
+                    alert(data);
+                });
     }
 //    $(document).ready(function() {
 ////    $('#fullpage').fullpage({

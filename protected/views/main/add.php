@@ -17,7 +17,7 @@ $this->pageTitle=Yii::app()->name;
 
 <div class="row-fluid classification_container" style="margin-top: 40px;">
     <div id="fullpage" class="col-xs-12">
-        <form class="form" id="addform">
+        <form class="form" id="adform" method="post" action="<?php echo Yii::app()->createUrl('classified/Addnewclassified'); ?>">
             <div class="row-fluid">
                 <!--</div> end of section 1 -->
                 <div class="col-xs-12 section" id="section1">
@@ -45,7 +45,8 @@ $this->pageTitle=Yii::app()->name;
 
                         </div>
                         <div id="cat-btn-container" class="text-right">
-                            <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#section2" id="btn-next" class="btn btn-lg">Next</a>
+<!--                        <a href="#section2"  class="btn-back btn btn-lg">Back</a>-->
+                            <a href="#section2" id="step1" class="btn-next btn btn-lg">Next</a>
                         </div>
                     </div>
                     <!-- End of section1-->
@@ -76,7 +77,7 @@ $this->pageTitle=Yii::app()->name;
                             <label>Negotiable</label>
                         </div>
                         <div class="col-xs-9">
-                            <input class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
+                            <input id="negotiable" class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
                         </div>
                         <div class="clearfix"></div> 
                         <div class="col-xs-3 text-right">
@@ -110,11 +111,12 @@ $this->pageTitle=Yii::app()->name;
                             <label>Year</label>
                         </div>
                         <div class="col-xs-9">
-                            <input type="text" class="section2-input-text section2-input-text-not-imp" placeholder="year of production" name="year" id="model"/>
+                            <input type="text" class="section2-input-text section2-input-text-not-imp" placeholder="year of production" name="year" id="year"/>
                         </div>
                         <div class="clearfix"></div> 
                         <div id="cat-btn-container" class="col-xs-12 text-right">
-                                <a href="#section1" id="btn-back" class="btn btn-lg">Back</a><a href="#section3" id="btn-next" class="btn btn-lg">Next</a>
+                                <a href="#section1"  class="btn-back btn btn-lg">Back</a>
+                                <a href="#section3" id="step2" class="btn-next btn btn-lg">Next</a>
                         </div>
                     </div>
                     
@@ -128,7 +130,7 @@ $this->pageTitle=Yii::app()->name;
                             <label>Description</label>
                         </div>
                         <div class="col-xs-8">
-                            <textarea name="description" placeholder="Add more description to your Post"></textarea>
+                            <textarea id="description" name="description" placeholder="Add more description to your Post"></textarea>
                         </div>
                         <div class="clearfix"></div> 
                         <div class="col-xs-4 text-right">
@@ -142,29 +144,79 @@ $this->pageTitle=Yii::app()->name;
                             <label>Are you a broker?</label>
                         </div>
                         <div class="col-xs-8">
-                            <input class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
+                            <input id="broker" class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
                         </div>
                         <div class="clearfix"></div> 
                         
                     </div>
                     <div id="cat-btn-container" class="col-xs-12 text-right">
-                        <a href="#section2" id="btn-back" class="btn btn-lg">Back</a><a href="#section4" id="btn-next" class="btn btn-lg">Next</a>
+                        <a href="#section2"  class="btn-back btn btn-lg">Back</a>
+                        <a href="#section4"  id="finish" class=" btn-next btn btn-lg">Finish</a>
+                        <button type="submit" id="ad-post-submit-btn" class="hidden"></button>
                     </div>
                 </div>
                 <!-- END OF SECTION 3 -->
+                <!-- section 4 -->
                 <div class="col-xs-12 section " id="section4">
-                    <h1>section4</h1>
-                    <div id="cat-btn-container" class="text-right">
-                            <a href="#section3" id="btn-back" class="btn btn-lg">Back</a><a href="#" id="btn-next" class="btn btn-lg">Post</a>
+                    <div class="row-fluid">
+                        <div class="col-xs-8 col-xs-push-2 empty-image-holder text-center">
+                            <div class="col-xs-12">
+                                <span class="col-xs-12">
+                                
+                                Time to add a picture!!
+                                </span>
+                                <button class="btn-next" id="visible-add-img-btn" ><span class="glyphicon glyphicon-plus" aria-hidden="true" style="margin-right: 5px;"></span>Add</button>
+                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch modal
+</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div id="cat-btn-container" class="text-right">
+                                <a href="#section3"  class="btn-back btn btn-lg">Back</a>
+                                <a href="#"  class="btn-next btn btn-lg">Post</a>
+                                
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-12 section " id="section5">
-                    <h1>section5</h1>
-                </div>
+                <!-- end of section4 -->
                 <div class="clearfix"></div>
             </div>
         </form>
+        <form id="image-upload-form" method="post" action="<?php echo Yii::app()->createUrl('classified/uploadadimage'); ?>" class="hidden">
+            <input id="img-up-input" type="file" name="img"/>
+        </form>
     </div>
+</div>
+<!-- Button trigger modal -->
+<div id="overlay-screen-tin" class="overlay-tint">
+    <div class="col-xs-12 text-center loading-container">
+        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/725.gif"/><br/>
+        <span>Generating your AD please wait</span>
+    </div>
+    
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+              <span class="sr-only">80% Complete (danger)</span>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fullPage.js"></script>
 <!-- This following line is needed only in case of using other easing effect rather than "linear", "swing" or "easeInQuart". You can also add the full jQuery UI instead of this file if you prefer -->
@@ -176,6 +228,7 @@ $this->pageTitle=Yii::app()->name;
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/bootstrap-switch.min.js'; ?>"></script>
 <script>
     var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
+    var addnewclassifiedurl = "<?php echo Yii::app()->createUrl('classified/addnewclassified'); ?>";
 //    function init_other(object)
 //    {
 //        if(object.val()==='0')
@@ -237,9 +290,11 @@ $this->pageTitle=Yii::app()->name;
 //        }
 //        return data;
 //    }
-    $(document).ready(function() {
+$(document).ready(function() {
     $(".checkbox-switch").bootstrapSwitch();
-    
+    $("#visible-add-img-btn").click(function(){
+        $("#img-up-input").trigger("click");
+    });
     $('#fullpage').fullpage({
             resize:false,
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
@@ -249,8 +304,22 @@ $this->pageTitle=Yii::app()->name;
     $("#cat-lvl-1-select").change(function(){
             init_other($(this));
     })  ;  
-    $("#btn-next").click(function(){
+    $("#step1").click(function(){
         alert(JSON.stringify(collect_step_1_data()));
+    });
+    $("#step2").click(function(){
+         alert(JSON.stringify(collect_step_2_data()));
+    });
+    $('#adform').submit(function(event){
+        event.preventDefault();
+        var height= (window.innerHeight/2)-150;
+        $("#overlay-screen-tin>div").css("margin-top",height);
+        $("#overlay-screen-tin").fadeIn();
+        savenewpost();
+    })
+    $("#finish").one("click",function(event){
+        event.preventDefault();
+        $("#ad-post-submit-btn").trigger("click");
     });
         
 });
