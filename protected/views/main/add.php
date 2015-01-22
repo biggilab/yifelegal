@@ -7,10 +7,14 @@ $this->pageTitle=Yii::app()->name;
     <div class="col-xs-12 navbar-fixed-top" id="step_menu_container" style="top: 50px; background:  #EFEFEF">
         <ul class="nav"  id="myMenue">
             <li data-menuanchor="firstPage"><a href="#section1"><h3>1</h3></a></li>
-                <li data-menuanchor="secondPage"><a href="#section2"><h3>2</h3></a></li>
-                <li data-menuanchor="thirdPage"><a href="#section3"><h3>3</h3></a></li>
-                <li data-menuanchor="fourthPage"><a href="#section4"><h3>4</h3></a></li>
-            </ul>
+            <li data-menuanchor="secondPage"><a href="#section2"><h3>2</h3></a></li>
+            <li data-menuanchor="thirdPage"><a href="#section3"><h3>3</h3></a></li>
+            <li data-menuanchor="fourthPage"><a href="#section4"><h3>4</h3></a></li>
+<!--            <li data-menuanchor="section1"><a href="#section1" id="section1-nav"><h3>1</h3></a></li>
+            <li data-menuanchor="section2"><a href="#section2" id="section2-nav"><h3>2</h3></a></li>
+            <li data-menuanchor="section3"><a href="#section3" id="section3-nav"><h3>3</h3></a></li>
+            <li data-menuanchor="section4"><a href="#section4" id="section4-nav"><h3>4</h3></a></li>-->
+        </ul>
     </div>
 
 </div>
@@ -21,6 +25,12 @@ $this->pageTitle=Yii::app()->name;
             <div class="row-fluid">
                 <!--</div> end of section 1 -->
                 <div class="col-xs-12 section" id="section1">
+                    <div class="alert alert-danger alert-dismissible" style="display:none;" id="section1-alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <span class='msg-box'></span>
+                    </div>
                     <div class="col-xs-12 classlvl lvl0 text-center">
                         <div id="cat-lvl-1">
                             <h3>Select category</h3>
@@ -56,9 +66,13 @@ $this->pageTitle=Yii::app()->name;
                 <div class="col-xs-12 section " id="section2">
                     
                     <div class="row-fluid">
-<!--                        <div class="col-xs-12 text-center">
-                            <h3>Step 2</h3>
-                        </div>-->
+                        <div class="alert alert-danger alert-dismissible" style="display: none;" id="section2-alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <i style="color: #000000; display:block; font-weight: normal;">All inputs with red lines are required.</i>
+                            <span class='msg-box'></span>
+                        </div>
                         <div class="col-xs-3 text-right">
                             <label>Title</label>
                         </div>
@@ -126,6 +140,13 @@ $this->pageTitle=Yii::app()->name;
                 <div class="col-xs-12 section " id="section3">
                     
                     <div class="row-fluid">
+                        <div class="alert alert-danger alert-dismissible" style="display: none;"  id="section3-alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <i style="color: #000000; display:block; font-weight: normal;">All inputs with red lines are required.</i>
+                            <span class='msg-box'>dasda</span>
+                        </div>
                         <div class="col-xs-4 text-right">
                             <label>Description</label>
                         </div>
@@ -297,31 +318,55 @@ $(document).ready(function() {
     });
     $('#fullpage').fullpage({
             resize:false,
-            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+            anchors: ['Page1', 'Page2', 'Page3', 'Page4'],
+//             anchors: ['section1', 'section2', 'section3', 'section4'],
             menu: '#myMenu',
             css3: true,
-        scrollingSpeed: 1000});
+            scrollingSpeed: 1000});
+    init_activate_mymenu_navigation();
     $("#cat-lvl-1-select").change(function(){
-            init_other($(this));
+            step1_init_other($(this));
     })  ;  
-    $("#step1").click(function(){
-        alert(JSON.stringify(collect_step_1_data()));
+    $("#step1").click(function(event){
+//        event.preventDefault();
+//        alert(JSON.stringify(collect_step_1_data()));
+//validat_step_1();
+        if(!validat_step_1())
+        {
+            event.preventDefault();
+        }
     });
-    $("#step2").click(function(){
-         alert(JSON.stringify(collect_step_2_data()));
+    $("#step2").click(function(event){
+         //alert(JSON.stringify(collect_step_2_data()));
+        if(!validat_step_2())
+        {
+            event.preventDefault();
+        }
     });
+    
     $('#adform').submit(function(event){
         event.preventDefault();
         var height= (window.innerHeight/2)-150;
         $("#overlay-screen-tin>div").css("margin-top",height);
         $("#overlay-screen-tin").fadeIn();
         savenewpost();
+//        }
     })
-    $("#finish").one("click",function(event){
-        event.preventDefault();
-        $("#ad-post-submit-btn").trigger("click");
+    $("#finish").click(function(event){
+        if(!validat_step_3())
+        {
+            event.preventDefault();
+        }
+        else
+        {
+            event.preventDefault();
+            $("#ad-post-submit-btn").trigger("click");
+        }
     });
         
 });
 
+$(window).on('hashchange',function(){ 
+    init_activate_mymenu_navigation();
+});
     </script>

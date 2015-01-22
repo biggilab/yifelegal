@@ -354,3 +354,183 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/index.php?r=Main/add
 ---
+2015/01/20 14:23:07 [error] [php] Trying to get property of non-object (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:76)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (76)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/20 14:54:37 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:110)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (110)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:38:30 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:111)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (111)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:38:44 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:111)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (111)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:41:54 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:112)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (112)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:42:10 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:112)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (112)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:44:03 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:112)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (112)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:44:17 [error] [php] Undefined property: stdClass::$_new (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:112)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (112)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:45:15 [error] [php] Creating default object from empty value (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:150)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (150)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:45:26 [error] [php] Creating default object from empty value (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:150)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (150)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:47:21 [error] [php] Undefined offset: 2 (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:124)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (124)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 15:51:32 [error] [php] Undefined offset: 2 (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:125)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/addnewclassified
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (125)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/21 16:00:17 [error] [exception.CException] exception 'CException' with message 'Property "CatLvl3.active" is not defined.' in /Library/WebServer/Documents/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('active', 0)
+#1 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(143): CActiveRecord->__set('active', 0)
+#2 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionAddnewclassified()
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('addnewclassifie...')
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/addn...')
+#8 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=classified/addnewclassified
+HTTP_REFERER=http://www.biggilab.co/index.php?r=Main/add
+---
+2015/01/21 16:03:30 [error] [exception.CException] exception 'CException' with message 'Property "CatLvl3.active" is not defined.' in /Library/WebServer/Documents/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('active', 0)
+#1 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(143): CActiveRecord->__set('active', 0)
+#2 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionAddnewclassified()
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('addnewclassifie...')
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/addn...')
+#8 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=classified/addnewclassified
+HTTP_REFERER=http://www.biggilab.co/index.php?r=Main/add
+---
+2015/01/21 16:03:51 [error] [exception.CException] exception 'CException' with message 'Property "CatLvl3.active" is not defined.' in /Library/WebServer/Documents/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('active', 0)
+#1 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(143): CActiveRecord->__set('active', 0)
+#2 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionAddnewclassified()
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('addnewclassifie...')
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/addn...')
+#8 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=classified/addnewclassified
+HTTP_REFERER=http://www.biggilab.co/index.php?r=Main/add
+---

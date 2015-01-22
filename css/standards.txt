@@ -1,0 +1,20 @@
+///////////////
+
+alert-danger{
+    background-color: #FFBABA;
+    color: #D8000C;
+    font-weight: bold;
+}
+
+default red button
+{
+border: solid 1px #EF0E0E;
+color: #FFF;
+width: 15%;
+background: #C00000;
+}
+default red button hover and active
+hover{
+    background: #EF0E0E;
+    border: solid 1px #C00000;
+}

@@ -69,7 +69,7 @@ div#step_menu_container ul {
     -moz-box-border-radius: 30px;
     background: #EFEFEF;
 }
-.btn-next, .btn-next{
+.btn-next{
     border: solid 1px #EF0E0E;
     color: #FFF;
     width: 15%;
@@ -224,4 +224,17 @@ display: table-cell;
     z-index: 10001;
     opacity: 1;
     
+}
+
+.alert-danger{
+    background-color: #FFBABA;
+    color: #D8000C;
+    font-weight: bold;
+}
+.cat-error, .cat-error:active, .cat-error:focus{
+    //outline: outset;
+    border: solid 1px #D8000C !important;
+    /*box-shadow: 0px 0px 17px #D8000C;*/
+     -webkit-box-shadow: inset 0 0 12px #D8000C;
+    box-shadow: inset 0 0 12px #D8000C;
 }

@@ -68,12 +68,96 @@ class ClassifiedController extends Controller
     {
         
     }
+    private function cleancategoryselection($data)
+    {
+        $newdata=NULL;
+        for ($i=1;$i<4;$i++)
+        {
+            if($data->st1_data[$i]->new_=="yes" && ($data->st1_data[$i]->data>0))
+            {
+                $data->st1_data[$i]->data=0;
+            }
+        }
+        return $newdata;
+    }
+    private function sortcategoryposting($level,$data)
+    {
+        $result=NULL;
+        switch ($level)
+        {
+            case 1:
+               if($data->st1_data[1]->new_=="no")
+                {
+                    $cat= CatLvl1::model();
+                } 
+                
+        }
+    }
     public function actionAddnewclassified()
     {
         if(isset($_POST["data"]))
         {
             $data = json_decode($_POST["data"]);
-            print CJSON::encode($data);
+            $fi=$data->st1_data;
+            $cat_lvl_1='';
+            $cat_lvl_2='';
+            $cat_lvl_3='';
+            $return= new stdClass();
+            $count= count($data->st1_data);
+            for ($i=1;$i<$count;$i++)
+            {
+                switch ($i)
+                {
+                    case 1 :
+                        if($data->st1_data[1]->new_=="yes" && $data->st1_data[1]->data!="")
+                        {
+                            $cat_lvl_1= new CatLvl1();
+                            $cat_lvl_1->name=$data->st1_data[1]->data;
+                            $cat_lvl_1->active=0;
+//                            $cat_lvl_1->save();
+                        }
+                        else if($data->st1_data[1]->new_=="no" && $data->st1_data[1]->data>0)
+                        {
+                            $cat_lvl_1= CatLvl1::model()->findByPk($data->st1_data[1]->data);
+                        }
+                        break;
+                    case 2:
+                        if($data->st1_data[2]->new_=="yes"  && $data->st1_data[2]->data!="")
+                        {
+                            $cat_lvl_2= new CatLvl2();
+                            $cat_lvl_2->name=$data->st1_data[2]->data;
+                            $cat_lvl_2->cat_lvl_1_id=$cat_lvl_1->id;
+                            $cat_lvl_2->active=0;
+//                            $cat_lvl_2->save();
+                        }
+                        else if($data->st1_data[2]->new_=="no" && $data->st1_data[2]->data>0)
+                        {
+                            $cat_lvl_2= CatLvl2::model()->findByPk($data->st1_data[2]->data);
+                        }
+                        break;
+                    case 3:
+                        if($data->st1_data[3]->new_=="yes"  && $data->st1_data[3]->data!="")
+                        {
+                            $cat_lvl_3= new CatLvl3();
+                            $cat_lvl_3->name=$data->st1_data[3]->data;
+                            $cat_lvl_3->active=0;
+                            $cat_lvl_3->cat_lvl_1_id=$cat_lvl_1->id;
+                            $cat_lvl_3->cat_lvl_2_id=$cat_lvl_2->id;
+//                            $cat_lvl_2->save();
+                        }
+                        else if($data->st1_data[3]->new_=="no" && $data->st1_data[3]->data>0)
+                        {
+                            $cat_lvl_3= CatLvl3::model()->findByPk($data->st1_data[3]->data);
+                        }
+                        break;
+                    default :
+                        
+                }
+            }
+            $return->cat1=$cat_lvl_1;
+            $return->cat2=$cat_lvl_2;
+            $return->cat3=$cat_lvl_3;
+            print CJSON::encode($return);
         }
     }
     public function actionGetCatLvlList()

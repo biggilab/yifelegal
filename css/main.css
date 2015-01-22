@@ -1,3 +1,6 @@
+button:focus,button:active,input:active,input:focus,textarea:focus,textarea:active{
+    outline: none;
+}
 body
 {
 	margin: 0;
