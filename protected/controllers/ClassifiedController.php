@@ -21,49 +21,49 @@ class ClassifiedController extends Controller
 			),
 		);
 	}
-    public function actioncat_lvl_list()
-    {
-        {
-        $result= new stdClass();
-        $result->error=1;
-        $result->found=0;
-        //$result->data='';
-        if(isset($_POST['classlvl_id']))
-        {
-           
-            if($_POST['lvl']==2)
-            {
-                $classlvlmodel=  Classleveltwo::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
-            }
-            elseif ( $_POST['lvl']==3) 
-            {
-                $classlvlmodel=  Classlevelthree::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
-            }
-            elseif ( $_POST['lvl']==1) 
-            {
-                $classlvlmodel= Classlevelone::model()->findAll();
-            }
-            if($classlvlmodel)    
-            {
-                $data=  CHtml::listData($classlvlmodel, "id", "name");
-                //$datalength=  count($data);
-                //$data[count($data)]="other";
-                ///var_dump($data);
-                //$dataarray=array();
-//                foreach($data as $value=>$name)
-//                {
-//                    
-//                    
-//                }
-                //$result->data.= "<option value='0'>Other";
-                $result->data=$data;
-                $result->error=0;
-                $result->found=1;
-            }
-        }
-        echo $result=CJSON::encode($result);
-    }
-    }
+//    public function actioncat_lvl_list()
+//    {
+//        {
+//        $result= new stdClass();
+//        $result->error=1;
+//        $result->found=0;
+//        //$result->data='';
+//        if(isset($_POST['classlvl_id']))
+//        {
+//           
+//            if($_POST['lvl']==2)
+//            {
+//                $classlvlmodel=  Classleveltwo::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
+//            }
+//            elseif ( $_POST['lvl']==3) 
+//            {
+//                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id'],"active"=>1));
+//            }
+//            elseif ( $_POST['lvl']==1) 
+//            {
+//                $classlvlmodel= Classlevelone::model()->findAll();
+//            }
+//            if($classlvlmodel)    
+//            {
+//                $data=  CHtml::listData($classlvlmodel, "id", "name");
+//                //$datalength=  count($data);
+//                //$data[count($data)]="other";
+//                ///var_dump($data);
+//                //$dataarray=array();
+////                foreach($data as $value=>$name)
+////                {
+////                    
+////                    
+////                }
+//                //$result->data.= "<option value='0'>Other";
+//                $result->data=$data;
+//                $result->error=0;
+//                $result->found=1;
+//            }
+//        }
+//        echo $result=CJSON::encode($result);
+//    }
+//    }
     public function actionUploadAdImage()
     {
         
@@ -99,9 +99,9 @@ class ClassifiedController extends Controller
         {
             $data = json_decode($_POST["data"]);
             $fi=$data->st1_data;
-            $cat_lvl_1='';
-            $cat_lvl_2='';
-            $cat_lvl_3='';
+            $cat_lvl_1=NULL;
+            $cat_lvl_2=NULL;
+            $cat_lvl_3=NULL;
             $return= new stdClass();
             $count= count($data->st1_data);
             for ($i=1;$i<$count;$i++)
@@ -114,7 +114,7 @@ class ClassifiedController extends Controller
                             $cat_lvl_1= new CatLvl1();
                             $cat_lvl_1->name=$data->st1_data[1]->data;
                             $cat_lvl_1->active=0;
-//                            $cat_lvl_1->save();
+                            $cat_lvl_1->save();
                         }
                         else if($data->st1_data[1]->new_=="no" && $data->st1_data[1]->data>0)
                         {
@@ -128,7 +128,7 @@ class ClassifiedController extends Controller
                             $cat_lvl_2->name=$data->st1_data[2]->data;
                             $cat_lvl_2->cat_lvl_1_id=$cat_lvl_1->id;
                             $cat_lvl_2->active=0;
-//                            $cat_lvl_2->save();
+                            $cat_lvl_2->save();
                         }
                         else if($data->st1_data[2]->new_=="no" && $data->st1_data[2]->data>0)
                         {
@@ -143,7 +143,7 @@ class ClassifiedController extends Controller
                             $cat_lvl_3->active=0;
                             $cat_lvl_3->cat_lvl_1_id=$cat_lvl_1->id;
                             $cat_lvl_3->cat_lvl_2_id=$cat_lvl_2->id;
-//                            $cat_lvl_2->save();
+                            $cat_lvl_3->save();
                         }
                         else if($data->st1_data[3]->new_=="no" && $data->st1_data[3]->data>0)
                         {
@@ -154,9 +154,33 @@ class ClassifiedController extends Controller
                         
                 }
             }
-            $return->cat1=$cat_lvl_1;
-            $return->cat2=$cat_lvl_2;
-            $return->cat3=$cat_lvl_3;
+            $classified= new Classified;
+            $classified->title = $data->st2_data->title;
+            $classified->price=$data->st2_data->price;
+            $classified->phone=$data->st3_data->phone;
+            $classified->active=0;
+            $classified->live=0;
+            $classified->cat_lvl_1=isset($cat_lvl_1) ? $cat_lvl_1->id : NULL;
+            $classified->cat_lvl_2=isset($cat_lvl_2) ? $cat_lvl_2->id : NULL;
+            $classified->cat_lvl_3=isset($cat_lvl_3) ? $cat_lvl_3->id : NULL;
+            $classified->save();
+            $classified_profile= new Classifiedsprofile;
+            $classified_profile->negotiable=$data->st2_data->negotiable ? 1 :0;
+            //figure out a way to sort conditions
+//            $classified_profile->condition = $data->st2_data->condition;
+            $classified_profile->model=$data->st2_data->model;
+            $classified_profile->brand=$data->st2_data->brand;
+            $classified_profile->year=$data->st2_data->year;
+            $classified_profile->classified_id=$classified->id;
+            $classified_profile->description=$data->st3_data->description;
+            $classified_profile->broker=$data->st3_data->broker? 1 :0;
+            $classified_profile->save();
+            $classified->profile=$classified_profile->id;
+            $classified->save();
+            $return->calassidiedid=$classified->id;
+            $return->calasifiedprofile=$classified_profile->id;
+//            $return->cat2=$cat_lvl_2;
+//            $return->cat3=$cat_lvl_3;
             print CJSON::encode($return);
         }
     }
@@ -172,7 +196,7 @@ class ClassifiedController extends Controller
             $lvl=$data->lvl;
             if($lvl==2)
             {
-                $classlvlmodel= CatLvl2::model()->findAllByAttributes(array("cat_lvl_1_id"=>$data->id));
+                $classlvlmodel= CatLvl2::model()->findAllByAttributes(array("cat_lvl_1_id"=>$data->id,"active"=>1));
                 $result->data="<h5>Select sub category</h5><select class='btn btn-lg' id='cat-lvl-2-select' name='cat-lvl-2' id='cat-lvl-2-select' data-next-lvl='3'><option value='-1'></option>";
                 if(count($classlvlmodel)==0)
                 {
@@ -187,7 +211,7 @@ class ClassifiedController extends Controller
             }
             if($lvl==3)
             {
-                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_2_id"=>$data->id));
+                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_2_id"=>$data->id,"active"=>1));
                 $result->data="<h6>Select sub-category</h6><select class='btn btn-lg' name='cat-lvl-3' id='cat-lvl-3-select'><option value='-1'></option>";
                   if(count($classlvlmodel)==0)
                 {

@@ -324,6 +324,9 @@ $(document).ready(function() {
             css3: true,
             scrollingSpeed: 1000});
     init_activate_mymenu_navigation();
+    $("#myMenue li a").click(function(event){
+        //event.preventDefault();
+    });
     $("#cat-lvl-1-select").change(function(){
             step1_init_other($(this));
     })  ;  
@@ -346,9 +349,9 @@ $(document).ready(function() {
     
     $('#adform').submit(function(event){
         event.preventDefault();
-        var height= (window.innerHeight/2)-150;
-        $("#overlay-screen-tin>div").css("margin-top",height);
-        $("#overlay-screen-tin").fadeIn();
+//        var height= (window.innerHeight/2)-150;
+//        $("#overlay-screen-tin>div").css("margin-top",height);
+//        $("#overlay-screen-tin").fadeIn();
         savenewpost();
 //        }
     })

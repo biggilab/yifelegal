@@ -10,6 +10,7 @@
  * @property integer $profile
  * @property integer $count
  * @property double $price
+ * @property double $phone
  * @property integer $active
  * @property integer $live
  * @property integer $create_id
@@ -43,12 +44,12 @@ class Classified extends CActiveRecord
 			array('title', 'required'),
 			array('profile, count, active, live, create_id, cat_lvl_1, cat_lvl_2, cat_lvl_3', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
-			array('title', 'length', 'max'=>128),
+			array('title, phone', 'length', 'max'=>128),
 			array('image', 'length', 'max'=>255),
 			array('create_date, update_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, image, profile, count, price, active, live, create_id, create_date, update_date, cat_lvl_1, cat_lvl_2, cat_lvl_3', 'safe', 'on'=>'search'),
+			array('id, title, image, profile, count, price, phone, active, live, create_id, create_date, update_date, cat_lvl_1, cat_lvl_2, cat_lvl_3', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,6 +77,7 @@ class Classified extends CActiveRecord
 			'profile' => 'Profile',
 			'count' => 'Count',
 			'price' => 'Price',
+            'phone' => 'Phone',
 			'active' => 'Active',
 			'live' => 'Live',
 			'create_id' => 'Create',
@@ -111,6 +113,7 @@ class Classified extends CActiveRecord
 		$criteria->compare('profile',$this->profile);
 		$criteria->compare('count',$this->count);
 		$criteria->compare('price',$this->price);
+        $criteria->compare('phone',$this->phone);
 		$criteria->compare('active',$this->active);
 		$criteria->compare('live',$this->live);
 		$criteria->compare('create_id',$this->create_id);
