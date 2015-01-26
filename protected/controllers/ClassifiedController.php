@@ -66,7 +66,14 @@ class ClassifiedController extends Controller
 //    }
     public function actionUploadAdImage()
     {
-        
+        if(isset($_FILES["img"]))
+		{
+            $result= new stdClass();
+             $result->tempfilename = $_FILES['img']['tmp_name'];
+             $result->filesize = $_FILES["img"]["size"];
+             $result->filetype = $_FILES["img"]["type"];
+            print CJSON::encode($result);
+        }
     }
     private function cleancategoryselection($data)
     {
@@ -95,14 +102,20 @@ class ClassifiedController extends Controller
     }
     public function actionAddnewclassified()
     {
+        $result= new stdClass();
+        $result->error=true;
         if(isset($_POST["data"]))
         {
             $data = json_decode($_POST["data"]);
-            $fi=$data->st1_data;
+            if($data->classified_id>0)
+            {
+                $result->error=false;
+                print CJSON::encode($result);
+                return;
+            }
             $cat_lvl_1=NULL;
             $cat_lvl_2=NULL;
             $cat_lvl_3=NULL;
-            $return= new stdClass();
             $count= count($data->st1_data);
             for ($i=1;$i<$count;$i++)
             {
@@ -114,11 +127,12 @@ class ClassifiedController extends Controller
                             $cat_lvl_1= new CatLvl1();
                             $cat_lvl_1->name=$data->st1_data[1]->data;
                             $cat_lvl_1->active=0;
-                            $cat_lvl_1->save();
+                            $cat_lvl_1->save() ? $result->error=false : $result->error=true;
                         }
                         else if($data->st1_data[1]->new_=="no" && $data->st1_data[1]->data>0)
                         {
                             $cat_lvl_1= CatLvl1::model()->findByPk($data->st1_data[1]->data);
+                            $cat_lvl_1 ? $result->error=false : $result->error=true;
                         }
                         break;
                     case 2:
@@ -128,11 +142,12 @@ class ClassifiedController extends Controller
                             $cat_lvl_2->name=$data->st1_data[2]->data;
                             $cat_lvl_2->cat_lvl_1_id=$cat_lvl_1->id;
                             $cat_lvl_2->active=0;
-                            $cat_lvl_2->save();
+                            $cat_lvl_2->save()? $result->error=false : $result->error=true;
                         }
                         else if($data->st1_data[2]->new_=="no" && $data->st1_data[2]->data>0)
                         {
                             $cat_lvl_2= CatLvl2::model()->findByPk($data->st1_data[2]->data);
+                            $cat_lvl_2 ? $result->error=false : $result->error=true;
                         }
                         break;
                     case 3:
@@ -143,14 +158,15 @@ class ClassifiedController extends Controller
                             $cat_lvl_3->active=0;
                             $cat_lvl_3->cat_lvl_1_id=$cat_lvl_1->id;
                             $cat_lvl_3->cat_lvl_2_id=$cat_lvl_2->id;
-                            $cat_lvl_3->save();
+                            $cat_lvl_3->save()? $result->error=false : $result->error=true;
                         }
                         else if($data->st1_data[3]->new_=="no" && $data->st1_data[3]->data>0)
                         {
                             $cat_lvl_3= CatLvl3::model()->findByPk($data->st1_data[3]->data);
+                            $cat_lvl_3 ? $result->error=false : $result->error=true;
                         }
                         break;
-                    default :
+                    default : $result->error=true;
                         
                 }
             }
@@ -163,7 +179,7 @@ class ClassifiedController extends Controller
             $classified->cat_lvl_1=isset($cat_lvl_1) ? $cat_lvl_1->id : NULL;
             $classified->cat_lvl_2=isset($cat_lvl_2) ? $cat_lvl_2->id : NULL;
             $classified->cat_lvl_3=isset($cat_lvl_3) ? $cat_lvl_3->id : NULL;
-            $classified->save();
+            $classified->save()? $result->error=false : $result->error=true;
             $classified_profile= new Classifiedsprofile;
             $classified_profile->negotiable=$data->st2_data->negotiable ? 1 :0;
             //figure out a way to sort conditions
@@ -174,15 +190,16 @@ class ClassifiedController extends Controller
             $classified_profile->classified_id=$classified->id;
             $classified_profile->description=$data->st3_data->description;
             $classified_profile->broker=$data->st3_data->broker? 1 :0;
-            $classified_profile->save();
+            $classified_profile->save() ? $result->error=false : $result->error=true;
             $classified->profile=$classified_profile->id;
-            $classified->save();
-            $return->calassidiedid=$classified->id;
-            $return->calasifiedprofile=$classified_profile->id;
-//            $return->cat2=$cat_lvl_2;
-//            $return->cat3=$cat_lvl_3;
-            print CJSON::encode($return);
+            $classified->save()? $result->error=false : $result->error=true;
+            $result->classified_id=$classified->id;
+            $result->calasifiedprofile=$classified_profile->id;
+//            $result->cat2=$cat_lvl_2;
+//            $result->cat3=$cat_lvl_3;
+           
         }
+         print CJSON::encode($result);
     }
     public function actionGetCatLvlList()
     {

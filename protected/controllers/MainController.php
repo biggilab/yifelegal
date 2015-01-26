@@ -46,8 +46,8 @@ class MainController extends Controller
 //        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/jquery.fullPage.js');
 //        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/vendors/jquery.easings.min.js');
 //        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/vendors/jquery.slimscroll.min.js');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/mainadd.js');
         
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/mainadd.js');
 		$this->layout="//layouts/mainindex";
 		$this->render('add' );//,array("classlvl1"=>$classlvl1,"addtype"=>$addtype));
 	}

@@ -215,6 +215,7 @@ function collect_step_1_data_()
 function savenewpost()
 {
     var data= {
+                classified_id: $("#classified_id").val(),
                 st1_data:collect_step_1_data(),
                 st2_data:collect_step_2_data(),
                 st3_data:{
@@ -224,12 +225,22 @@ function savenewpost()
                          }
               }
     var paramDATA = JSON.stringify(data);
+    var height= (window.innerHeight/2)-150;
+    $("#overlay-screen-tin>div").css("margin-top",height);
+    $("#overlay-screen-tin").fadeIn();
     $.post(
             addnewclassifiedurl,
             { data: paramDATA },
             function(data) {
                 var result = JSON.parse(data);
-                alert(data);
+                if(result.error===false)
+                {
+                    $("#classified_id").val(result.classified_id);
+                    $("#classified_id_img").val(result.classified_id);
+                    $("#overlay-screen-tin").fadeOut('slow');
+                    window.location.hash='#section4';//nav;
+                }
+                
             });
 }
 function init_activate_mymenu_navigation()
@@ -238,3 +249,25 @@ function init_activate_mymenu_navigation()
     $("#myMenue li>a[class='active_'").removeClass("active_");
     $("#myMenue li>a[href='#section"+index+"']").addClass("active_");
 }
+function before_img_upload_submit(){
+//    alert("before");
+$("#imageModal").modal("show");
+}
+function progress_uploaded_img(event, position, total, percentComplete) {
+	$(".progress div.progress-bar").css("width", percentComplete + "%");
+}
+function img_upload_success(data){
+    $("#imageModal").modal("hide");
+    alert(data);
+}
+function init_upload_image()
+{
+    $("#image-upload-form").ajaxForm({
+		beforeSubmit: before_img_upload_submit,
+		uploadProgress: progress_uploaded_img,
+		success: img_upload_success,
+		error: function() {
+			alert("Invalid image detected.");
+		}
+            });
+        }

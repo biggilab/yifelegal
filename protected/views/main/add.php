@@ -173,6 +173,7 @@ $this->pageTitle=Yii::app()->name;
                     <div id="cat-btn-container" class="col-xs-12 text-right">
                         <a href="#section2"  class="btn-back btn btn-lg">Back</a>
                         <a href="#section4"  id="finish" class=" btn-next btn btn-lg">Finish</a>
+                        <input type="hidden" name="classified_id" id="classified_id" value="0"/>
                         <button type="submit" id="ad-post-submit-btn" class="hidden"></button>
                     </div>
                 </div>
@@ -186,16 +187,14 @@ $this->pageTitle=Yii::app()->name;
                                 
                                 Time to add a picture!!
                                 </span>
-                                <button class="btn-next" id="visible-add-img-btn" ><span class="glyphicon glyphicon-plus" aria-hidden="true" style="margin-right: 5px;"></span>Add</button>
-                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch modal
-</button>
+                                <button type="button" class="btn-next" id="visible-add-img-btn" ><span class="glyphicon glyphicon-plus" aria-hidden="true" style="margin-right: 5px;"></span>Add</button>
+                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch modal</button>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <div id="cat-btn-container" class="text-right">
                                 <a href="#section3"  class="btn-back btn btn-lg">Back</a>
-                                <a href="#"  class="btn-next btn btn-lg">Post</a>
+                                <a href="#"  class="btn-next btn btn-lg" id="upload_img">Post</a>
                                 
                         </div>
                     </div>
@@ -206,6 +205,7 @@ $this->pageTitle=Yii::app()->name;
         </form>
         <form id="image-upload-form" method="post" action="<?php echo Yii::app()->createUrl('classified/uploadadimage'); ?>" class="hidden">
             <input id="img-up-input" type="file" name="img"/>
+            <input type="hidden" name="classified_id" id="classified_id_img" value="0"/>
         </form>
     </div>
 </div>
@@ -215,10 +215,9 @@ $this->pageTitle=Yii::app()->name;
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/725.gif"/><br/>
         <span>Generating your AD please wait</span>
     </div>
-    
 </div>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -247,74 +246,16 @@ $this->pageTitle=Yii::app()->name;
 <!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.slimscroll.min.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/bootstrap-switch.min.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/jquery.form.min.js'; ?>"></script>
 <script>
     var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
     var addnewclassifiedurl = "<?php echo Yii::app()->createUrl('classified/addnewclassified'); ?>";
-//    function init_other(object)
-//    {
-//        if(object.val()==='0')
-//        {
-//            $("#cat-lvl-"+object.attr("data-next-lvl")).empty();
-//            $("#"+object.attr("id")+"-other").removeClass("hidden").css({"height":object.css("height"),"border-radius":object.css("border-radius"),"width":object.css("width")});
-//            $("#"+object.attr("id")+"-other").focus();
-//        }
-//        else
-//        {
-//            $("#cat-lvl-"+object.attr("data-next-lvl")).empty();
-//            $("#"+object.attr("id")+"-other").addClass("hidden");
-//             var data = { lvl: object.attr("data-next-lvl"),
-//                         id : object.val()
-//                        }
-//           var paramdata= JSON.stringify(data);
-//           $.post(
-//			getcatlvllisturl,
-//			{ data: paramdata },
-//			function(data)
-//			{
-//                var result = JSON.parse(data);
-//                if(result.error===false)
-//                {
-//                    $("#cat-lvl-"+object.attr("data-next-lvl")).append(result.data);
-//                    $("#cat-lvl-"+object.attr("data-next-lvl")+"-select").change(function(){
-//                                  init_other($(this));
-//                            })  ;
-//                    if(result.empty===1)
-//                    {
-//                         $("#cat-lvl-"+object.attr("data-next-lvl")+"-select").val(0).trigger('change');
-//                    }
-//                }
-//            });
-//        }
-//    }
-//    function collect_step_1_data()
-//    {
-//        var data= new Array;
-//        for (var i=1; i<4; i++)
-//        {
-//            var select=$("#cat-lvl-"+i+"-select").val();
-//            if(select==='0')
-//            {
-//                var _data={
-//                            new_:'yes',
-//                            data:$("#cat-lvl-"+i+"-select-other").val()
-//                          };
-//                          data[i]=_data;
-//            }
-//            else
-//            {
-//                var _data={
-//                                    new_:'no',
-//                                    data:$("#cat-lvl-"+i+"-select").val()
-//                                };
-//                                data[i]=_data;
-//            }
-//        }
-//        return data;
-//    }
+
 $(document).ready(function() {
+    init_upload_image();
     $(".checkbox-switch").bootstrapSwitch();
     $("#visible-add-img-btn").click(function(){
-        $("#img-up-input").trigger("click");
+    $("#img-up-input").trigger("click");
     });
     $('#fullpage').fullpage({
             resize:false,
@@ -354,7 +295,10 @@ $(document).ready(function() {
 //        $("#overlay-screen-tin").fadeIn();
         savenewpost();
 //        }
-    })
+    });
+    $('#image-upload-form').submit(function(event){
+        event.preventDefault();
+    });
     $("#finish").click(function(event){
         if(!validat_step_3())
         {
@@ -366,7 +310,10 @@ $(document).ready(function() {
             $("#ad-post-submit-btn").trigger("click");
         }
     });
-        
+    $("#upload_img").click(function(){
+     $("#image-upload-form").submit();
+//     upload_image();
+    });  
 });
 
 $(window).on('hashchange',function(){ 

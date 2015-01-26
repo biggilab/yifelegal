@@ -1,0 +1,44 @@
+2015/01/26 16:01:57 [error] [php] Undefined index: image (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:72)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (72)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/26 16:02:14 [error] [php] Undefined index: image (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:72)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (72)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/26 16:03:08 [error] [php] Undefined index: image (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:72)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (72)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/26 16:05:12 [error] [php] Undefined index: image (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:72)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (72)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
