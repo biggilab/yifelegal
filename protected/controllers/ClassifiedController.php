@@ -69,10 +69,25 @@ class ClassifiedController extends Controller
         if(isset($_FILES["img"]))
 		{
             $result= new stdClass();
-             $result->tempfilename = $_FILES['img']['tmp_name'];
-             $result->filesize = $_FILES["img"]["size"];
-             $result->filetype = $_FILES["img"]["type"];
-            print CJSON::encode($result);
+            $supported_file_typ= array("image/jpeg","image/png","image/gif");
+            $imgtempname = $_FILES['img']['tmp_name'];
+            $imgsize = $_FILES["img"]["size"];
+            $filetyp = $_FILES["img"]["type"];
+            $extention=  pathinfo($_FILES["img"]["name"],PATHINFO_EXTENSION);
+            list($w,$h)= getimagesize($imgtempname);
+            if(  in_array($filetyp, $supported_file_typ))
+            {
+                $newimgname= hash('crc32',uniqid()).".".$extention;
+                $directory = $_SERVER['DOCUMENT_ROOT'] . Classifiedimage::IMG_DIRECTORY;
+                if(move_uploaded_file($imgtempname, $directory.$newimgname))
+                {
+                    $img = new img;
+                    $img->
+                }
+                
+            }
+//                            print CJSON::encode("width " . $w . " height ". $h."new image name ".$newimgname);
+
         }
     }
     private function cleancategoryselection($data)

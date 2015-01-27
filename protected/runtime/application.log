@@ -42,3 +42,73 @@ Stack trace:
 REQUEST_URI=/index.php?r=classified/uploadadimage
 in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (72)
 in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:30:58 [error] [php] Undefined variable: newimgname (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:81)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (81)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:31:11 [error] [php] hash() expects at least 2 parameters, 1 given (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:79)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#4 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (79)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:31:27 [error] [php] hash() expects at least 2 parameters, 1 given (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:79)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#4 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (79)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:34:27 [error] [php] Undefined index: image (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:81)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#5 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (81)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:45:48 [error] [php] move_uploaded_file(/Library/WebServer/Documents/yifelegal/images/classifieds/32434173.jpg): failed to open stream: No such file or directory (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:82)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#4 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (82)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/01/27 13:46:08 [error] [php] move_uploaded_file(/Library/WebServer/Documents/yifelegal/images/classifieds/54d3e1d5.jpg): failed to open stream: No such file or directory (/Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php:82)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#3 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#4 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/uploadadimage
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (82)
+in /Library/WebServer/Documents/yifelegal/index.php (13)

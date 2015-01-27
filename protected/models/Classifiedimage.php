@@ -15,7 +15,8 @@ class Classifiedimage extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
+    const IMG_DIRECTORY ="/images/classifieds/";
+    public function tableName()
 	{
 		return 'tbl_classifiedimage';
 	}
@@ -90,6 +91,10 @@ class Classifiedimage extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    public function resize()
+    {
+        
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
