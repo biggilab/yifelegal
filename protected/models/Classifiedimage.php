@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'tbl_classifiedimage':
  * @property integer $id
  * @property integer $classified_id
+ * @property string $name
  * @property string $variable
  * @property integer $active
  * @property string $create_date
@@ -16,7 +17,7 @@ class Classifiedimage extends CActiveRecord
 	 * @return string the associated database table name
 	 */
     const IMG_DIRECTORY ="/images/classifieds/";
-    public function tableName()
+	public function tableName()
 	{
 		return 'tbl_classifiedimage';
 	}
@@ -30,11 +31,11 @@ class Classifiedimage extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('classified_id, active', 'numerical', 'integerOnly'=>true),
-			array('variable', 'length', 'max'=>255),
-			array('create_date', 'safe'),
+			array('name', 'length', 'max'=>128),
+			array('variable, create_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, classified_id, variable, active, create_date', 'safe', 'on'=>'search'),
+			array('id, classified_id, name, variable, active, create_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +58,7 @@ class Classifiedimage extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'classified_id' => 'Classified',
+			'name' => 'Name',
 			'variable' => 'Variable',
 			'active' => 'Active',
 			'create_date' => 'Create Date',
@@ -83,6 +85,7 @@ class Classifiedimage extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('classified_id',$this->classified_id);
+		$criteria->compare('name',$this->name,true);
 		$criteria->compare('variable',$this->variable,true);
 		$criteria->compare('active',$this->active);
 		$criteria->compare('create_date',$this->create_date,true);
@@ -91,10 +94,6 @@ class Classifiedimage extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-    public function resize()
-    {
-        
-    }
 
 	/**
 	 * Returns the static model of the specified AR class.

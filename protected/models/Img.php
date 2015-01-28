@@ -43,65 +43,84 @@ class Img extends CModel
     public $new_height;
     public $originalimage;
     public $error;
-    public $thumbsize;
+    public $thumb_resize_width;
+    public $thumb_resize_height;
+    const thumb_width=200;
+    const thumb_height=250;
     public function attributeNames()
 	{
 		return array();
 	}
-    public function resize($size)
+    public function get_image_size()
     {
+        list($this->width,  $this->height)= getimagesize($this->filepath.$this->filename);
+        $this->originalimage=  $this->filepath.$this->filename;
+        Yii::log($this->originalimage);
+    }
+    public function create_thumbnail()
+    {
+        $this->get_image_size();
+        $thumb_directory=  $this->filepath."/thumb/";
+        if(!is_dir($thumb_directory))
+		{
+			Yii::log("Creating thumb folder " . $thumb_directory);
+			if(mkdir($thumb_directory, 0777, true)===false)
+			{
+				Yii::log("Unable to thumb image folder " . $thumb_directory);
+				return false;
+			}
+		}
+        $thumb=$thumb_directory.$this->filename;
+        $imgtyp = pathinfo($this->originalimage, PATHINFO_EXTENSION);
+		if($imgtyp == 'jpeg') $imgtyp = 'jpg';
+		switch($imgtyp){
+			case 'bmp': $sourceimage = imagecreatefromwbmp($this->originalimage); break;
+			case 'gif': $sourceimage = imagecreatefromgif($this->originalimage); break;
+			case 'jpg': $sourceimage = imagecreatefromjpeg($this->originalimage); break;
+			case 'png': $sourceimage = imagecreatefrompng($this->originalimage); break;
+			default : return "Unsupported Image type!";
+		}
+        if ($sourceimage === false) 
+        {
+            Yii::log("Unable create image " . $imgtyp);
+            return false;
+        }
+        $source_aspect_ratio = $this->width / $this->height;
+        $thumbnail_aspect_ratio = self::thumb_width /self::thumb_height;
+        if($this->width <= self::thumb_width && $this->height <= self::thumb_height) 
+        {
+            $this->thumb_resize_width = $this->width;
+            $this->thumb_resize_height = $this->height;
+        } 
+        elseif ($thumbnail_aspect_ratio > $source_aspect_ratio) 
+        {
+            $this->thumb_resize_width = (int) (self::thumb_height * $source_aspect_ratio);
+            $this->thumb_resize_height = self::thumb_height;
+        }
+        else 
+        {
+            $this->thumb_resize_width = self::thumb_width;
+            $this->thumb_resize_height = (int) (self::thumb_width/ $source_aspect_ratio);
+        }
+        $thumbimage= imagecreatetruecolor($this->thumb_resize_width, $this->thumb_resize_height);
+        imagecopyresampled($thumbimage, $sourceimage, 0, 0, 0, 0, $this->thumb_resize_width, $this->thumb_resize_height, $this->width, $this->height);
+        switch($imgtyp){
+			//case 'bmp': imagewbmp($newimage, $this->destinationfile); break;
+			//case 'gif': imagegif($newimage, $this->destinationfile); break;
+			//case 'jpg': imagejpeg($newimage, $this->destinationfile, 55); break;	// default 75
+			//case 'png': imagepng($newimage, $this->destinationfile, 8); break;  	// default 6
+			
+			case 'bmp': imagewbmp($thumbimage, $thumb); break;
+			case 'gif': imagegif($thumbimage, $thumb); break;
+            case 'jpg': imagejpeg($thumbimage, $thumb, 100); break;
+			case 'png': imagepng($thumbimage, $thumb); break;
+		}
+        imagedestroy($thumbimage);
+        imagedestroy($sourceimage);
+        return true;
         
     }
-    function createThumbnail($imageName,$newWidth,$newHeight,$uploadDir,$moveToDir)
-    {
-        $path = $uploadDir . '/' . $imageName;
-
-        $mime = getimagesize($path);
-
-        if($mime['mime']=='image/png'){ $src_img = imagecreatefrompng($path); }
-        if($mime['mime']=='image/jpg'){ $src_img = imagecreatefromjpeg($path); }
-        if($mime['mime']=='image/jpeg'){ $src_img = imagecreatefromjpeg($path); }
-        if($mime['mime']=='image/pjpeg'){ $src_img = imagecreatefromjpeg($path); }
-
-        $old_x = imageSX($src_img);
-        $old_y = imageSY($src_img);
-
-        if($old_x > $old_y)
-        {
-            $thumb_w    =   $newWidth;
-            $thumb_h    =   $old_y/$old_x*$newWidth;
-        }
-
-        if($old_x < $old_y)
-        {
-            $thumb_w    =   $old_x/$old_y*$newHeight;
-            $thumb_h    =   $newHeight;
-        }
-
-        if($old_x == $old_y)
-        {
-            $thumb_w    =   $newWidth;
-            $thumb_h    =   $newHeight;
-        }
-
-        $dst_img        =   ImageCreateTrueColor($thumb_w,$thumb_h);
-
-        imagecopyresampled($dst_img,$src_img,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
-
-
-        // New save location
-        $new_thumb_loc = $moveToDir . $imageName;
-
-        if($mime['mime']=='image/png'){ $result = imagepng($dst_img,$new_thumb_loc,8); }
-        if($mime['mime']=='image/jpg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-        if($mime['mime']=='image/jpeg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-        if($mime['mime']=='image/pjpeg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-
-        imagedestroy($dst_img);
-        imagedestroy($src_img);
-        return $result;
-    }
-//	
+//       
 //	public function afterConstruct()
 //	{
 //		$this->path = "";

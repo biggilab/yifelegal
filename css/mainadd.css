@@ -238,3 +238,7 @@ display: table-cell;
      -webkit-box-shadow: inset 0 0 12px #D8000C;
     box-shadow: inset 0 0 12px #D8000C;
 }
+#img-place-holder img{
+    margin: 7% 0 7% 0;
+    display: none;
+}

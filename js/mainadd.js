@@ -257,8 +257,16 @@ function progress_uploaded_img(event, position, total, percentComplete) {
 	$(".progress div.progress-bar").css("width", percentComplete + "%");
 }
 function img_upload_success(data){
-    $("#imageModal").modal("hide");
-    alert(data);
+    
+    var result = JSON.parse(data);
+    if(result.error===false)
+    {
+      $("#imageModal").modal("hide");  
+      var img="<img src='"+result.imagesrc+"' class='img-responsive'/>";
+      $("#img-place-holder").empty().append(img);
+      $("#img-place-holder img").fadeIn();
+      $("#img-up-input").val().empty()
+    }
 }
 function init_upload_image()
 {

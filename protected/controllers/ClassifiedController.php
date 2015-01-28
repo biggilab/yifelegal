@@ -69,6 +69,8 @@ class ClassifiedController extends Controller
         if(isset($_FILES["img"]))
 		{
             $result= new stdClass();
+            $result->error=false;
+            $id=$_POST["classified_id"];
             $supported_file_typ= array("image/jpeg","image/png","image/gif");
             $imgtempname = $_FILES['img']['tmp_name'];
             $imgsize = $_FILES["img"]["size"];
@@ -78,15 +80,41 @@ class ClassifiedController extends Controller
             if(  in_array($filetyp, $supported_file_typ))
             {
                 $newimgname= hash('crc32',uniqid()).".".$extention;
-                $directory = $_SERVER['DOCUMENT_ROOT'] . Classifiedimage::IMG_DIRECTORY;
+                $directory = $_SERVER['DOCUMENT_ROOT'] . Classifiedimage::IMG_DIRECTORY.$id."/";
+                if(!is_dir($directory))
+                {
+                    Yii::log("Creating thumb folder " . $directory);
+                    if(mkdir($directory, 0777, true)===false)
+                    {
+                        $result->error=true;
+                        Yii::log("Unable to thumb image folder " . $directory);
+                        return false;
+                    }
+                }
                 if(move_uploaded_file($imgtempname, $directory.$newimgname))
                 {
-                    $img = new img;
-                    $img->
+                    $classifiedimage= new Classifiedimage;
+                    $classifiedimage->classified_id=$id;
+                    $img = new Img;
+                    $img->filename=$newimgname;
+                    $img->filepath=$directory;
+                    if($img->create_thumbnail())
+                    {
+                     $classifiedimage->variable=  serialize($img);
+                     $classifiedimage->active=0;
+                     $classifiedimage->name=$newimgname;
+                     $classifiedimage->save();
+                    }
+                    $result->imagesrc=Classifiedimage::IMG_DIRECTORY.$id."/".$newimgname;
+                    
+                }
+                else
+                {
+                    $result->error=true;
                 }
                 
             }
-//                            print CJSON::encode("width " . $w . " height ". $h."new image name ".$newimgname);
+            print CJSON::encode($result);
 
         }
     }

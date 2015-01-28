@@ -183,12 +183,12 @@ $this->pageTitle=Yii::app()->name;
                     <div class="row-fluid">
                         <div class="col-xs-8 col-xs-push-2 empty-image-holder text-center">
                             <div class="col-xs-12">
-                                <span class="col-xs-12">
-                                
+                                <span class="col-xs-12" id="img-place-holder">
+                                    <img src="/images/classifieds/55/thumb/05b6c7cb.jpg" class="img-responsive"/>
                                 Time to add a picture!!
                                 </span>
                                 <button type="button" class="btn-next" id="visible-add-img-btn" ><span class="glyphicon glyphicon-plus" aria-hidden="true" style="margin-right: 5px;"></span>Add</button>
-                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch modal</button>
+<!--                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch modal</button>-->
                             </div>
                         </div>
                         <div class="clearfix"></div>
