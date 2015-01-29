@@ -33,6 +33,10 @@ $this->pageTitle=Yii::app()->name;
                     </div>
                     <div class="col-xs-12 classlvl lvl0 text-center">
                         <div id="cat-lvl-1">
+                            <?php $clas= Classified::model()->findByPk(63);
+//                            $clas->create_date= new CDbExpression('NOW()');
+//                            $clas->save();
+                            echo $clas->create_date."date";//new CDbExpression('NOW()');?>
                             <h3>Select category</h3>
                                 <?php
                                     $model = CatLvl1::model()->findAll();

@@ -75,15 +75,16 @@ class Classified extends CActiveRecord
 	}
     public function beforeSave()
     {
+        Yii::log("nknkad");
         if ($this->isNewRecord)
 		{
-            $this->create_date = new CDbExpression('now()');
+            $this->create_date= new CDbExpression('NOW()');
         }
         else
         {
-            $this->update_date = new CDbExpression('now()');
+            $this->update_date = new CDbExpression('NOW()');
         }
-        parent::beforeSave();
+        return parent::beforeSave();
     }
 	/**
 	 * @return array customized attribute labels (name=>label)
