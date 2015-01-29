@@ -73,7 +73,18 @@ class Classified extends CActiveRecord
             'classifiedimage' => array(self::HAS_MANY, 'Classifiedimage', 'classified_id')
 		);
 	}
-
+    public function beforeSave()
+    {
+        if ($this->isNewRecord)
+		{
+            $this->create_date = new CDbExpression('now()');
+        }
+        else
+        {
+            $this->update_date = new CDbExpression('now()');
+        }
+        parent::beforeSave();
+    }
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

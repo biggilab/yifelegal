@@ -84,6 +84,8 @@ class ClassifiedController extends Controller
                      $classifiedimage->name=$newimgname;
                      $classifiedimage->save();
                     }
+                    $classified->thumbnail=$newimgname;
+                    $classified->save();
                     $result->imagesrc=Classifiedimage::IMG_DIRECTORY.$id."/".$newimgname;
                     
                 }

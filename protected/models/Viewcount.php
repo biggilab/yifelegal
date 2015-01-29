@@ -36,7 +36,13 @@ class Viewcount extends CActiveRecord
 			array('id, classified_id, count, variable, update_date', 'safe', 'on'=>'search'),
 		);
 	}
-
+    public function beforeSave()
+    {
+        
+            $this->update_date = new CDbExpression('now()');
+        
+        parent::beforeSave();
+    }
 	/**
 	 * @return array relational rules.
 	 */

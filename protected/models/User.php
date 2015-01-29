@@ -45,7 +45,18 @@ class User extends CActiveRecord
 			array('id, create_time, update_time, firstname, lastname, username, password, email, usertype, confirmed, last_login', 'safe', 'on'=>'search'),
 		);
 	}
-
+    public function beforeSave()
+    {
+        if ($this->isNewRecord)
+		{
+            $this->create_time = new CDbExpression('now()');
+        }
+        else
+        {
+            $this->update_time = new CDbExpression('now()');
+        }
+        parent::beforeSave();
+    }
 	/**
 	 * @return array relational rules.
 	 */

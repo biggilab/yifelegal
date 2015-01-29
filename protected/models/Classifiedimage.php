@@ -38,7 +38,15 @@ class Classifiedimage extends CActiveRecord
 			array('id, classified_id, name, variable, active, create_date', 'safe', 'on'=>'search'),
 		);
 	}
-
+    public function beforeSave()
+    {
+        if ($this->isNewRecord)
+		{
+            $this->create_date = new CDbExpression('now()');
+        }
+        
+        parent::beforeSave();
+    }
 	/**
 	 * @return array relational rules.
 	 */

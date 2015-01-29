@@ -46,7 +46,7 @@ class Img extends CModel
     public $thumb_resize_width;
     public $thumb_resize_height;
     const thumb_width=200;
-    const thumb_height=250;
+    const thumb_height=150;
     public function attributeNames()
 	{
 		return array();
