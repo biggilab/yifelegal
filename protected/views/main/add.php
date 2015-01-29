@@ -99,11 +99,19 @@ $this->pageTitle=Yii::app()->name;
                         </div>
                         <div class="col-xs-9">
                             <select class='btn btn-lg' id='condition-select'  name='condition-select'>
-                                <option value="New-inside-original-box">New (inside original box)</option>
+                                <?php
+                                
+                                    $con=Classifiedsprofile::model()->condition_values;
+                                    foreach($con as $key => $value)
+                                    {
+                                        echo '<option value="'.$key.'">'.$value.'</option>';
+                                    }
+                                ?>
+<!--                                <option value="New-inside-original-box">New (inside original box)</option>
                                 <option value="New-out-of-original-box">New (out of original box)</option>
                                 <option value="slightly-used">Slightly used</option>
                                 <option value="used-with-minor-faults">Used with minor faults</option>
-                                <option value="used-not-working">Used, not working</option>
+                                <option value="used-not-working">Used, not working</option>-->
                             </select>
                         </div>
                         <div class="clearfix"></div>   
@@ -181,6 +189,13 @@ $this->pageTitle=Yii::app()->name;
                 <!-- section 4 -->
                 <div class="col-xs-12 section " id="section4">
                     <div class="row-fluid">
+                        <div class="alert alert-danger alert-dismissible"  style="display: none;" id="section4-alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <i style="color: #000000; display:block; font-weight: normal;">Supported image types are 'jpeg', 'gif', 'png' only!</i>
+                            <span class='msg-box'>dasda</span>
+                        </div>
                         <div class="col-xs-8 col-xs-push-2 empty-image-holder text-center">
                             <div class="col-xs-12">
                                 <span class="col-xs-12" id="img-place-holder">
@@ -194,7 +209,7 @@ $this->pageTitle=Yii::app()->name;
                         <div class="clearfix"></div>
                         <div id="cat-btn-container" class="text-right">
                                 <a href="#section3"  class="btn-back btn btn-lg">Back</a>
-                                <a href="#"  class="btn-next btn btn-lg" id="upload_img">Post</a>
+                                <a href="#"  class="btn-next btn btn-lg disabled" id="upload_img" >Post</a>
                                 
                         </div>
                     </div>
@@ -296,9 +311,6 @@ $(document).ready(function() {
         savenewpost();
 //        }
     });
-    $('#image-upload-form').submit(function(event){
-        event.preventDefault();
-    });
     $("#finish").click(function(event){
         if(!validat_step_3())
         {
@@ -310,8 +322,18 @@ $(document).ready(function() {
             $("#ad-post-submit-btn").trigger("click");
         }
     });
-    $("#upload_img").click(function(){
-     $("#image-upload-form").submit();
+    $('#image-upload-form').submit(function(event){
+        event.preventDefault();
+    });
+    $("#img-up-input").change(function(){
+        validate_step_4();
+    })
+    $("#upload_img").click(function(event){
+        event.preventDefault();
+        if(validate_step_4())
+        {
+            $("#image-upload-form").submit();
+        }
 //     upload_image();
     });  
 });

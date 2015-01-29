@@ -28,6 +28,13 @@ class Classified extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+    const New_inside_original_box = 1;
+    const New_out_of_original_box = 2;
+    const slightly_used = 3;
+    const used_with_minor_faults = 4;
+    const used_not_working = 5;
+    
+    public $condition = array(1=>"New inside original box", 2=>"New out of original box", 3=>"slightly used", 4=>"used with minor faults", 5=>"used not working");
 	public function tableName()
 	{
 		return 'tbl_classified';

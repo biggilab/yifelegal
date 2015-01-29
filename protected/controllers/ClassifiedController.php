@@ -6,6 +6,7 @@ class ClassifiedController extends Controller
 	 * Declares class-based actions.
 	 */
     public $layout='//layouts/main';
+   
 	public function actions()
 	{
 		return array(
@@ -21,49 +22,22 @@ class ClassifiedController extends Controller
 			),
 		);
 	}
-//    public function actioncat_lvl_list()
-//    {
-//        {
-//        $result= new stdClass();
-//        $result->error=1;
-//        $result->found=0;
-//        //$result->data='';
-//        if(isset($_POST['classlvl_id']))
-//        {
-//           
-//            if($_POST['lvl']==2)
-//            {
-//                $classlvlmodel=  Classleveltwo::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id']));
-//            }
-//            elseif ( $_POST['lvl']==3) 
-//            {
-//                $classlvlmodel= CatLvl3::model()->findAllByAttributes(array("cat_lvl_1_id"=>$_POST['classlvl_id'],"active"=>1));
-//            }
-//            elseif ( $_POST['lvl']==1) 
-//            {
-//                $classlvlmodel= Classlevelone::model()->findAll();
-//            }
-//            if($classlvlmodel)    
-//            {
-//                $data=  CHtml::listData($classlvlmodel, "id", "name");
-//                //$datalength=  count($data);
-//                //$data[count($data)]="other";
-//                ///var_dump($data);
-//                //$dataarray=array();
-////                foreach($data as $value=>$name)
-////                {
-////                    
-////                    
-////                }
-//                //$result->data.= "<option value='0'>Other";
-//                $result->data=$data;
-//                $result->error=0;
-//                $result->found=1;
-//            }
-//        }
-//        echo $result=CJSON::encode($result);
-//    }
-//    }
+    public function actionIndex()
+    {
+         $this->layout="//layouts/mainindex";
+         $criteria = new CDbCriteria();
+         $criteria->order = "id DESC";
+         $count = Classified::model()->count($criteria);
+         $pages = new CPagination($count);
+         $pages->setPageSize(5);
+         $pages->applyLimit($criteria);
+         $this->render("index",array(
+             'model' => Classified::model()->findAll($criteria),
+             'count' => $count,
+             'page_size' =>5,
+             'pages'=>$pages
+         ));
+    }
     public function actionUploadAdImage()
     {
         if(isset($_FILES["img"]))
@@ -226,7 +200,7 @@ class ClassifiedController extends Controller
             $classified_profile= new Classifiedsprofile;
             $classified_profile->negotiable=$data->st2_data->negotiable ? 1 :0;
             //figure out a way to sort conditions
-//            $classified_profile->condition = $data->st2_data->condition;
+            $classified_profile->condition = $data->st2_data->condition;
             $classified_profile->model=$data->st2_data->model;
             $classified_profile->brand=$data->st2_data->brand;
             $classified_profile->year=$data->st2_data->year;

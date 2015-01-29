@@ -97,6 +97,25 @@ function validat_step_3()
     }
     return error;
 }
+function validate_step_4()
+{
+    var file=$("#img-up-input").val();
+    if(file.search(/jpeg/i)>0 || file.search(/jpg/i)>0 || file.search(/gif/i)>0 || file.search(/png/i)>0)
+    {
+        $("#section4-alert .msg-box").empty();
+        $("#section4-alert").fadeOut("slow");
+        $("#upload_img").removeClass("disabled")
+        return true;
+    }
+    else
+    {
+        $("#section4-alert .msg-box").empty().append("The image format you selected is not supported.")
+        $("#section4-alert").fadeIn("slow");
+        $("#upload_img").hasClass("disabled")? true : $("#upload_img").addClass("disabled");
+        return false;
+    }
+    
+}
 function clear_error(object,alert_id)
 {
     $('#'+alert_id).fadeOut();
@@ -266,6 +285,7 @@ function img_upload_success(data){
       $("#img-place-holder").empty().append(img);
       $("#img-place-holder img").fadeIn();
       $("#img-up-input").val().empty()
+      $("#upload_img").addClass("disabled");
     }
 }
 function init_upload_image()

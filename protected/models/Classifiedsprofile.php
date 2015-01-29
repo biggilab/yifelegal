@@ -22,6 +22,7 @@ class Classifiedsprofile extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+    public $condition_values = array(1=>"New inside original box", 2=>"New out of original box", 3=>"slightly used", 4=>"used with minor faults", 5=>"used not working");
 	public function tableName()
 	{
 		return 'tbl_classifiedsprofile';
