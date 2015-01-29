@@ -31,6 +31,7 @@ class ClassifiedController extends Controller
          $pages = new CPagination($count);
          $pages->setPageSize(5);
          $pages->applyLimit($criteria);
+         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/classified.index.css');	
          $this->render("index",array(
              'model' => Classified::model()->findAll($criteria),
              'count' => $count,
@@ -69,6 +70,10 @@ class ClassifiedController extends Controller
                 {
                     $classifiedimage= new Classifiedimage;
                     $classifiedimage->classified_id=$id;
+//                    if($id>0)
+//                    {
+                        $classified = Classified::model()->findByPk($id);
+//                    }
                     $img = new Img;
                     $img->filename=$newimgname;
                     $img->filepath=$directory;

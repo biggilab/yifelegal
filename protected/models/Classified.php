@@ -10,6 +10,7 @@
  * @property integer $profile
  * @property integer $count
  * @property double $price
+ * @property string $thumbnail
  * @property double $phone
  * @property integer $active
  * @property integer $live
@@ -56,7 +57,7 @@ class Classified extends CActiveRecord
 			array('create_date, update_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, image, profile, count, price, phone, active, live, create_id, create_date, update_date, cat_lvl_1, cat_lvl_2, cat_lvl_3', 'safe', 'on'=>'search'),
+			array('id, title, image, profile, count, price, thumbnail, phone, active, live, create_id, create_date, update_date, cat_lvl_1, cat_lvl_2, cat_lvl_3', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,7 +69,8 @@ class Classified extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'classifiedsprofiles' => array(self::HAS_MANY, 'Classifiedsprofile', 'classified_id'),
+			'classifiedsprofiles' => array(self::HAS_ONE, 'Classifiedsprofile', 'classified_id'),
+            'classifiedimage' => array(self::HAS_MANY, 'Classifiedimage', 'classified_id')
 		);
 	}
 
@@ -84,6 +86,7 @@ class Classified extends CActiveRecord
 			'profile' => 'Profile',
 			'count' => 'Count',
 			'price' => 'Price',
+            'thumbnail' => 'Thumbnail',
             'phone' => 'Phone',
 			'active' => 'Active',
 			'live' => 'Live',
@@ -120,6 +123,7 @@ class Classified extends CActiveRecord
 		$criteria->compare('profile',$this->profile);
 		$criteria->compare('count',$this->count);
 		$criteria->compare('price',$this->price);
+        $criteria->compare('thumbnail',$this->thumbnail);
         $criteria->compare('phone',$this->phone);
 		$criteria->compare('active',$this->active);
 		$criteria->compare('live',$this->live);
