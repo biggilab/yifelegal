@@ -1,10 +1,8 @@
 <?php
-/* @var $this mainController */
+/* @var $this adminController */
 
 $this->pageTitle=Yii::app()->name;
-
-?>
-
+?><link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fullPage.css" />
 <div class=" row">
     <div class="col-xs-12 navbar-fixed-top" id="step_menu_container" style="top: 50px; background:  #EFEFEF">
         <ul class="nav"  id="myMenue">
@@ -20,6 +18,7 @@ $this->pageTitle=Yii::app()->name;
     </div>
 
 </div>
+
 <div class="row-fluid classification_container" style="margin-top: 40px;">
     <div id="fullpage" class="col-xs-12">
         <form class="form" id="adform" method="post" action="<?php echo Yii::app()->createUrl('classified/Addnewclassified'); ?>">
@@ -258,30 +257,39 @@ $this->pageTitle=Yii::app()->name;
     </div>
   </div>
 </div>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fullPage.js"></script>
+<!-- This following line is needed only in case of using other easing effect rather than "linear", "swing" or "easeInQuart". You can also add the full jQuery UI instead of this file if you prefer -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.easings.min.js"></script>
+
+
+<!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendors/jquery.slimscroll.min.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/bootstrap-switch.min.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/js/jquery.form.min.js'; ?>"></script>
-<script type="text/javascript">
-var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
-var addnewclassifiedurl = "<?php echo Yii::app()->createUrl('classified/addnewclassified'); ?>";
-$(window).on('hashchange',function(){ 
-    show_active_section("");
-});
-$(window).load(function() {
-    show_active_section("");
-});
+<script>
+    var getcatlvllisturl = "<?php echo Yii::app()->createUrl('classified/getcatlvllist'); ?>";
+    var addnewclassifiedurl = "<?php echo Yii::app()->createUrl('classified/addnewclassified'); ?>";
+
 $(document).ready(function() {
     init_upload_image();
     $(".checkbox-switch").bootstrapSwitch();
     $("#visible-add-img-btn").click(function(){
     $("#img-up-input").trigger("click");
     });
+    $('#fullpage').fullpage({
+            resize:false,
+            anchors: ['Page1', 'Page2', 'Page3', 'Page4'],
+//             anchors: ['section1', 'section2', 'section3', 'section4'],
+            menu: '#myMenu',
+            css3: true,
+            scrollingSpeed: 1000});
     init_activate_mymenu_navigation();
     $("#myMenue li a").click(function(event){
         //event.preventDefault();
     });
     $("#cat-lvl-1-select").change(function(){
             step1_init_other($(this));
-    });  
+    })  ;  
     $("#step1").click(function(event){
 //        event.preventDefault();
 //        alert(JSON.stringify(collect_step_1_data()));
@@ -325,16 +333,18 @@ $(document).ready(function() {
         validate_step_4();
     })
     $("#upload_img").click(function(event){
-        event.preventDefault();
+//        event.preventDefault();
+//        alert("da");
         if(validate_step_4())
         {
+//            alert("da");
             $("#image-upload-form").submit();
         }
 //     upload_image();
-    });
+    });  
 });
 
 $(window).on('hashchange',function(){ 
     init_activate_mymenu_navigation();
 });
-</script>
+    </script>

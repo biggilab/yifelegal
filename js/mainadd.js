@@ -298,4 +298,38 @@ function init_upload_image()
 			alert("Invalid image detected.");
 		}
             });
-        }
+}
+//function resize_fullpage(hash_param)
+//    {
+//        var hash = window.location.hash;
+//        if(window.location.hash=="" && hash_param=="")
+//        {
+//            hash="#section1";
+//        }else if(hash_param!==""){
+//            hash=hash_param;
+//        }
+//       
+//        $(hash).css("visibility","hidden").css("display","block");
+//        var height = ($(window).height() - $("#fullpage").height())/2;
+//        height= height-150
+//        $("#fullpage").css("margin-top",height);
+//        $(hash).css("visibility","visible");
+//        
+////        alert(height);
+//        
+//    }
+
+function show_active_section(hash_param)
+{
+   var hash = window.location.hash;
+   if(window.location.hash=="" && hash_param=="")
+   {
+       hash="#section1";
+   }else if(hash_param!==""){
+       hash=hash_param;
+   }
+   $(".section").each(function(){
+       $(this).slideUp();
+   })
+   $(hash).fadeIn();
+}

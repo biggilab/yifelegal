@@ -11,155 +11,18 @@
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
+	<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">-->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/blockScroll.css">
+    <!--<link rel="stylesheet" type="text/css" href="<?php //echo Yii::app()->request->baseUrl; ?>/css/blockScroll.css">-->
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.sidr.dark.css">
-            <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    
-    <style>
-/*        div.navbar-header>a.navbar-brand{
-             padding: 8px 15px 0px 15px;
-            display: block;
-            margin: auto;
-            width: 120px;
-            float: none;
-            overflow: hidden;
-        }*/
-    @media (min-width: 1200px) {
-        .navbar-toggle {
-            display: block !important;
-            outline: none;
-            outline: 0;
-            outline: thin dotted \9;
-        }.navbar-brand{
-        margin-left: 12% !important;
-    }
-    }
-    @media (min-width: 768px) {
-        .navbar-brand{
-            margin-left: 12% !important;
-        }
-		 
-		
-    }
-    @media (max-width: 992px) {
-        .navbar-toggle {
-            display: block !important;
-            outline: none;
-            outline: 0;
-            outline: thin dotted \9;
-    }
-   
-    .navbar-left{
-        float: left !important;
-    }
-    }
-    .navbar-toggle {
-    display: block !important;
-    outline: none;
-    outline: 0;
-    outline: thin dotted \9;
-}
-.navbar-right{
-    border: none;
-}
-.navbar-right.acounts{
-    padding: 9px 0px 9px 10px;
-margin-top: 8px;
-margin-bottom: 8px;
-}
-.acounts .btn-login{
-    color: #fff;
-    
-}
-.acounts .btn-signup{
-    
-    padding: 4px 7px;
-    margin-left: 5px;
-    border-radius: 8px;
-    text-decoration: none !important;
-    border: none;
-    cursor: pointer;
-}
-.navbar.navbar-inverse.navbar-fixed-top{
-    //position: absolute;
-	//top: 0;
-}
-.sidr-overlay {
-    top: 0;
-    left: 0;
-    display: none;
-    z-index: 99;
-    background:rgba(0,0,0,0.6);
-    height: auto;
-    width: auto;
-    overflow: auto;
-    overflow-y: scroll;
-}
-.sidr-overlay-fixed {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-.sidr-overlay {
-    overflow: auto;
-    overflow-y: auto;
-}
-html,body,div.index-search-form-container, body div.container{
-	//height: 100%;
-   // height:auto !important; 
-    min-height: 100%; 
-   
-   //height: 100% auto; 
-}
-.index-search-form-container{
-	display: table;
-	width: 100%;
-	padding: 0% 25%;
-	
-}
-.index-search-form{
-	display: table-cell;
-	vertical-align: middle;
-	text-align:center;
-}
-.navigation-index{
-	margin:  0px;
-	margin-bottom: 4%;
-	
-}
-.navigation-index li{
-	list-style: none;
-    
-}
-.navigation-index li a{
-	
-	text-decoration: none;
-	font-weight: bold;
-
-	
-}
-#sidr ul li i{
-	margin-right: 20px;
-}
-
-.circle {
-    background:  #7aba7b;
-	border-radius: 50%;
-	width: 20px;
-	height: 20px; 
-	/* width and height can be anything, as long as they're equal */
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.mainindex.css">
 </head>
 
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="main-header">
         <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="" id="simple-menu" href="#sidr">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -186,9 +49,9 @@ html,body,div.index-search-form-container, body div.container{
                 ?>
                 <a class="navbar-brand" style=" float: none;padding: 8px 15px 0px 15px;" href="<?php echo $this->createUrl(Yii::app()->baseUrl."/Main/index")?>"><img src="<?php echo Yii::app()->baseUrl.'/images/yifelegal_logo_1_88X41.png'; ?>" style="margin-top:8px;" /></a>
                 
+                </div>
             </div>
-          </div>
-    </div>
+                </div>
     <div class="container" style="padding-bottom: 80px; padding-top: 20px;" >
         <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(

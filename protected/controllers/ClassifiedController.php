@@ -68,6 +68,8 @@ class ClassifiedController extends Controller
                 }
                 if(move_uploaded_file($imgtempname, $directory.$newimgname))
                 {
+                    if($id>0)
+                {
                     $classifiedimage= new Classifiedimage;
                     $classifiedimage->classified_id=$id;
 //                    if($id>0)
@@ -86,8 +88,9 @@ class ClassifiedController extends Controller
                     }
                     $classified->thumbnail=$newimgname;
                     $classified->save();
+                    }
                     $result->imagesrc=Classifiedimage::IMG_DIRECTORY.$id."/".$newimgname;
-                    
+                  
                 }
                 else
                 {

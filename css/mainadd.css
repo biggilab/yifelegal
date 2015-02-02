@@ -9,6 +9,9 @@ and open the template in the editor.
 */
 
 /*this is copied from mainindex view which was missplaced*/
+.section{
+    display: none;
+}
 div#step_menu_container ul li{
     display: inline-block;
     margin: 0px 4px;
