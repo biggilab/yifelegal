@@ -43,16 +43,30 @@
 					else
 					{
 						echo '<div class=" navbar-right acounts hidden-xs">
-								<a class=" navbar-btn btn-login " href="'.$this->createUrl(Yii::app()->baseUrl.'/Main/login').'">Login</a> 
+								<a class=" navbar-btn btn-login " href="'.$this->createUrl(Yii::app()->baseUrl.'/Mainusers/login').'">Login</a> 
 								<a class="navbar-btn btn-success btn-signup " href="'.$this->createUrl(Yii::app()->baseUrl.'/mainusers/signup').'">Signup</a>
 							  </div>';
 					}
                 ?>
                 <a class="navbar-brand" style=" float: none;padding: 8px 15px 0px 15px;" href="<?php echo $this->createUrl(Yii::app()->baseUrl."/Main/index")?>"><img src="<?php echo Yii::app()->baseUrl.'/images/yifelegal_logo_1_88X41.png'; ?>" style="margin-top:8px;" /></a>
                 
-                </div>
             </div>
-                </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 57px; padding: 0px;">
+        <div class="col-xs-12 " id="step_menu_container" style=" background:  #EFEFEF">
+            <ul class="nav"  id="myMenue">
+                <li data-menuanchor="firstPage"><a href="#section1"><h3>1</h3></a></li>
+                <li data-menuanchor="secondPage"><a href="#section2"><h3>2</h3></a></li>
+                <li data-menuanchor="thirdPage"><a href="#section3"><h3>3</h3></a></li>
+                <li data-menuanchor="fourthPage"><a href="#section4"><h3>4</h3></a></li>
+    <!--            <li data-menuanchor="section1"><a href="#section1" id="section1-nav"><h3>1</h3></a></li>
+                <li data-menuanchor="section2"><a href="#section2" id="section2-nav"><h3>2</h3></a></li>
+                <li data-menuanchor="section3"><a href="#section3" id="section3-nav"><h3>3</h3></a></li>
+                <li data-menuanchor="section4"><a href="#section4" id="section4-nav"><h3>4</h3></a></li>-->
+            </ul>
+        </div>
+    </div>
     <div class="container" style="padding-bottom: 80px; padding-top: 20px;" >
         <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(

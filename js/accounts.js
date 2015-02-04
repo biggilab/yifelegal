@@ -83,13 +83,14 @@ function formuserdata(form_id)
                     firstname:$('#'+form_id+' #reg_firstname').val(),
                     lastname:$('#'+form_id+' #reg_lastname').val(),
                     email:$('#'+form_id+' #reg_email').val(),
-                    password:$('#'+form_id+' #reg_firstname').val(),
+                    password:$('#'+form_id+' #reg_password').val(),
                   }
     return userdata;
 }
 function register(form_id)
 {   var user = formuserdata(form_id);
     var paramJSON= JSON.stringify(user);
+    alert(paramJSON);
     $("."+form_id+" .submit-form").attr("disabled","disabled");
     $.post(
                 Registeruserurl,

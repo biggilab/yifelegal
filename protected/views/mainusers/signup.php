@@ -1,7 +1,6 @@
 <div class="row" style="padding-top: 100px;">
     <div class="container col-xs-12 col-sm-7 col-md-8  " style="">
         <img class="img-responsive" src='<?php echo Yii::app()->baseUrl."/images/yifelegal_logo_1_600X200.png"; ?>' />
-ds
     </div>
     <div class="container col-xs-12 col-sm-5 col-md-4 gray-boarder-round" style="">
         <h3> Signup User</h3>

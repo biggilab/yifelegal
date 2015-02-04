@@ -5,6 +5,7 @@ class MainUsersController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+    
 	public function actions()
 	{
 		return array(
@@ -111,6 +112,10 @@ class MainUsersController extends Controller
 //	}
     public function actionSignup()
     {
+        if(!Yii::app()->user->isGuest)
+        {
+            $this->redirect($this->createUrl("main/index"));
+        }
         $this->pageTitle = "Sign Up | Yifelegal";
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.1.min.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/accounts.js');
@@ -118,12 +123,18 @@ class MainUsersController extends Controller
     }
     public function actionLogin()
     {
+        if(!Yii::app()->user->isGuest)
+        {
+            $this->redirect($this->createUrl("main/index"));
+        }
+        $this->layout="//layouts/mainindex";
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.1.min.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/mainuser.login.js');
         $this->render('login');
     }
     public function actionLoginSubmit()
     {
+        $this->layout="//layouts/mainindex";
         $result= new stdClass();
         $result->error=1;
         $result->msg='';
@@ -159,7 +170,7 @@ class MainUsersController extends Controller
 	{
         $result= new stdClass();
         $result->error=1;
-        $result->msg='';
+        $result->msg='f';
         if(isset($_POST['data']))
         {
             $data = json_decode($_POST['data']);
@@ -177,10 +188,15 @@ class MainUsersController extends Controller
                     $usermodel->password = User::better_crypt($data->password);
                     $usermodel->usertype = User::USER;
                     $usermodel->confirmed = 0;
+                    yii::log($usermodel->password,  CLogger::LEVEL_WARNING);
                     if($usermodel->save())
                     {
                         $result->error=0;
-                        $result->msg='You have succesfully signed up. Please confirm your email.';
+                        $result->msg='You have succesfully signed up. Please confirm your email.'.$usermodel->password;
+                    }
+                    else
+                    {
+                        $result->msg='could not save your data'.CJSON::encode($usermodel);
                     }
                 }
                 else 

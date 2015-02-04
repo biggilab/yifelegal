@@ -9,6 +9,33 @@ and open the template in the editor.
 */
 
 /*this is copied from mainindex view which was missplaced*/
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+#main-header{
+    margin-bottom: 0px;
+}
 .section{
     display: none;
 }
@@ -75,7 +102,7 @@ div#step_menu_container ul {
 .btn-next{
     border: solid 1px #EF0E0E;
     color: #FFF;
-    width: 15%;
+    /*width: 15%;*/
     background: #C00000;
 }
 .btn-next:active,.btn-next:hover{
@@ -244,4 +271,63 @@ display: table-cell;
 #img-place-holder img{
     margin: 7% 0 7% 0;
     display: none;
+}
+@media only screen and (min-width : 320px)  {
+    .btn-back , .btn-next{
+        width: 40%;
+    }
+    div.section .row-fluid .col-xs-3 label,  div.section .row-fluid .col-xs-4 label{
+        font-size: 14px;
+    }
+    
+    div.section .row-fluid .col-xs-3{
+        text-align: left;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+/*    .btn-back , .btn-next{
+        width: 15%;
+
+    }
+    div.section .row-fluid .col-xs-3 label{
+        font-size: 24px;
+    }
+    div.section .row-fluid .col-xs-3{
+        text-align: right;
+    }*/
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .btn-back , .btn-next{
+        width: 15%;
+
+    }
+    div.section .row-fluid .col-xs-3 label, div.section .row-fluid .col-xs-4 label{
+        font-size: 24px;
+    }
+    div.section .row-fluid .col-xs-3{
+        text-align: right;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+/*    .btn-back , .btn-next{
+        width: 15%;
+
+    }
+    div.section .row-fluid .col-xs-3 label{
+        font-size: 24px;
+    }
+    div.section .row-fluid .col-xs-3{
+        text-align: right;
+    }*/
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }

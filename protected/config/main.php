@@ -79,6 +79,8 @@ return array(
 			'username' => 'yifelegal',
 			'password' => 'yifelegal',
 			'charset' => 'utf8',
+//            'enableProfiling'=>true,
+//            'enableParamLogging'=>true,
 		),
 		
 		'errorHandler'=>array(
@@ -90,14 +92,16 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error, warning,info',//,trace',
+//                     'categories'=>'system.db.*',
+//                            'logFile'=>'sql.log'
 				),
 				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
+				
+//				array(
+//					'class'=>'CWebLogRoute',
+//				),
+				
 			),
 		),
 	),

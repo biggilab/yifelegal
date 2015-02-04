@@ -23,7 +23,7 @@ class User extends CActiveRecord
 	 */
     const USER=1;
     const ADMIN=0;
-    public function tableName()
+	public function tableName()
 	{
 		return 'tbl_user';
 	}
@@ -33,7 +33,7 @@ class User extends CActiveRecord
 	 */
 	public function rules()
 	{
-	    // NOTE: you should only define rules for those attributes that
+		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
 			array('username, password, email', 'required'),
@@ -55,7 +55,7 @@ class User extends CActiveRecord
         {
             $this->update_time = new CDbExpression('now()');
         }
-        parent::beforeSave();
+        return parent::beforeSave();
     }
 	/**
 	 * @return array relational rules.
@@ -132,7 +132,7 @@ class User extends CActiveRecord
         }
         return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
     }
-    public function validate($password)
+    public function validate_($password)
     {
         return crypt($password,  $this->password)==$this->password;
     }

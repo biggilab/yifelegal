@@ -32,13 +32,9 @@
             </form>
         </div>
     </div>
-    <?php
-    
-    $user = User::model()->findByPk("1");
-    echo crypt("abi",$user->password)."\n";
-    echo $user->password;
-    ?>
 </div>
 <script type="text/javascript">
 loginsubmiturl = "<?php echo $this->createUrl(Yii::app()->baseUrl."/mainusers/loginsubmit") ?>";
+indexurl= "<?php echo $this->createUrl(Yii::app()->baseUrl."/main/index") ?>";
+
 </script>

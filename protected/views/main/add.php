@@ -5,21 +5,7 @@ $this->pageTitle=Yii::app()->name;
 
 ?>
 
-<div class=" row">
-    <div class="col-xs-12 navbar-fixed-top" id="step_menu_container" style="top: 50px; background:  #EFEFEF">
-        <ul class="nav"  id="myMenue">
-            <li data-menuanchor="firstPage"><a href="#section1"><h3>1</h3></a></li>
-            <li data-menuanchor="secondPage"><a href="#section2"><h3>2</h3></a></li>
-            <li data-menuanchor="thirdPage"><a href="#section3"><h3>3</h3></a></li>
-            <li data-menuanchor="fourthPage"><a href="#section4"><h3>4</h3></a></li>
-<!--            <li data-menuanchor="section1"><a href="#section1" id="section1-nav"><h3>1</h3></a></li>
-            <li data-menuanchor="section2"><a href="#section2" id="section2-nav"><h3>2</h3></a></li>
-            <li data-menuanchor="section3"><a href="#section3" id="section3-nav"><h3>3</h3></a></li>
-            <li data-menuanchor="section4"><a href="#section4" id="section4-nav"><h3>4</h3></a></li>-->
-        </ul>
-    </div>
 
-</div>
 <div class="row-fluid classification_container" style="margin-top: 40px;">
     <div id="fullpage" class="col-xs-12">
         <form class="form" id="adform" method="post" action="<?php echo Yii::app()->createUrl('classified/Addnewclassified'); ?>">

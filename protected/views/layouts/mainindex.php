@@ -32,18 +32,20 @@
         </button>
         <div class="container">
             <div class="navbar-header" style=" float: none; text-align: center">
-
+                <a tabindex="0" class="toggle navbar-right navbar-toggle" id="user-icn-toggle" data-toggle="popover" data-placement="bottom" >
+                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
+                </a>
                 <?php
                     if(!Yii::app()->user->isGuest)
                     {
-                        echo    '<button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
-                                </button>';
+//                        echo    '<a  class="navbar-toggle navbar-right" data-toggle="collapse" data-target=".navbar-collapse">
+//                                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
+//                                </a>';
                     }
 					else
 					{
 						echo '<div class=" navbar-right acounts hidden-xs">
-								<a class=" navbar-btn btn-login " href="'.$this->createUrl(Yii::app()->baseUrl.'/Main/login').'">Login</a> 
+								<a class=" navbar-btn btn-login " href="'.$this->createUrl(Yii::app()->baseUrl.'/Mainusers/login').'">Login</a> 
 								<a class="navbar-btn btn-success btn-signup " href="'.$this->createUrl(Yii::app()->baseUrl.'/mainusers/signup').'">Signup</a>
 							  </div>';
 					}
@@ -90,7 +92,16 @@
         </div>
     </div>
     <div class="sidr-overlay sidr-overlay-fixed"></div>
-
+    <div id="usr-icn-cont" style="display:none;">
+        <div class="user-popover-content">
+            <ul>
+                <li>
+                    <span class="glyphicon glyphicon-plane"></span>
+                    Logout
+                </li>
+            </ul>
+        </div>
+    </div>
 <?php 
 Yii::app()->clientScript->registerScriptFile("//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.1.min.js');
@@ -111,9 +122,15 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery.s
 //              size: 10,
 //             
 //          });
-
+    $("#user-icn-toggle").popover({
+        html:true,
+//        title : 'Default title value',
+        content: $("#usr-icn-cont").html(),
+        
+    });
       $('#simple-menu').sidr({
       side: 'left',
+      
       onOpen :function(){
 			$(".sidr-overlay").css("display","block");
 			$(".navbar-fixed-top").animate({left: $("#sidr").width()+"px"}, 200);//.css("left",$("#sidr").width()+"px");

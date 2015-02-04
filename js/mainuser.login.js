@@ -5,6 +5,7 @@
  */
 
 var loginsubmiturl;
+var indexurl;
 function login(form_id)
 {
     var userdata= {
@@ -19,24 +20,25 @@ function login(form_id)
                 {
                     var result=JSON.parse(data);
                     if(result.error==1)
-            { 
-                $("."+form_id+"  .alert").removeClass("alert-success");
-                $("."+form_id+"  .alert").addClass("alert-danger");
-                $("."+form_id+"  .alert #msg").html("<strong>Error : "+result.msg);
-                $("."+form_id+"  .alert .glyphicon").removeClass("glyphicon-ok-sign");
-                $("."+form_id+"  .alert .glyphicon").addClass("glyphicon-remove-sign");
-                $("."+form_id+"  .alert").removeClass("hidden");
-                $("."+form_id+"  .submit-form").removeAttr("disabled");
-            }
-            else
-            {
-                $("."+form_id+"  .alert").removeClass("alert-danger");
-                $("."+form_id+"  .alert").addClass("alert-success");
-                $("."+form_id+"  .alert #msg").html("<strong>Success : "+result.msg);
-                $("."+form_id+"  .alert .glyphicon").removeClass("glyphicon-remove-sign");
-                $("."+form_id+"  .alert .glyphicon").addClass("glyphicon-ok-sign");
-                $("."+form_id+"  .alert").removeClass("hidden");
-            }
+                    { 
+                        $("."+form_id+"  .alert").removeClass("alert-success");
+                        $("."+form_id+"  .alert").addClass("alert-danger");
+                        $("."+form_id+"  .alert #msg").html("<strong>Error : "+result.msg);
+                        $("."+form_id+"  .alert .glyphicon").removeClass("glyphicon-ok-sign");
+                        $("."+form_id+"  .alert .glyphicon").addClass("glyphicon-remove-sign");
+                        $("."+form_id+"  .alert").removeClass("hidden");
+                        $("."+form_id+"  .submit-form").removeAttr("disabled");
+                    }
+                    else
+                    {
+                        $("."+form_id+"  .alert").removeClass("alert-danger");
+                        $("."+form_id+"  .alert").addClass("alert-success");
+                        $("."+form_id+"  .alert #msg").html("<strong>Success : "+result.msg);
+                        $("."+form_id+"  .alert .glyphicon").removeClass("glyphicon-remove-sign");
+                        $("."+form_id+"  .alert .glyphicon").addClass("glyphicon-ok-sign");
+                        $("."+form_id+"  .alert").removeClass("hidden");
+                        window.location.assign(indexurl);
+                    }
                     
                 }
             );

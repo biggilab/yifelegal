@@ -49,7 +49,7 @@ class UserIdentity extends CUserIdentity
 				$this->errorCode=self::ERROR_USERNAME_INVALID;
 			}
 		}
-        else if(!$user->Validate($this->password))
+        else if(!$user->Validate_($this->password))
         {
             
 			$this->errorCode=self::ERROR_PASSWORD_INVALID ;

@@ -75,7 +75,6 @@ class Classified extends CActiveRecord
 	}
     public function beforeSave()
     {
-        Yii::log("nknkad");
         if ($this->isNewRecord)
 		{
             $this->create_date= new CDbExpression('NOW()');

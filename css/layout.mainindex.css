@@ -152,3 +152,14 @@ html,body,div.index-search-form-container, body div.container{
 	height: 20px; 
 	/* width and height can be anything, as long as they're equal */
 }
+.user-popover-content ul{
+    list-style: none;
+}
+.user-popover-content{
+    width: 300px;
+}
+.popover {
+max-width: 300px;
+.popover.bottom > .arrow{
+    display: none;
+}
