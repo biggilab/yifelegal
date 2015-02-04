@@ -265,6 +265,10 @@ function savenewpost()
 function init_activate_mymenu_navigation()
 {
     var index=/[0-9]/.exec(location.hash);
+    if(index===null)
+    {
+        index=1;
+    }
     $("#myMenue li>a[class='active_'").removeClass("active_");
     $("#myMenue li>a[href='#section"+index+"']").addClass("active_");
 }

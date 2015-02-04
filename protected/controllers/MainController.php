@@ -48,7 +48,7 @@ class MainController extends Controller
 //        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/vendors/jquery.slimscroll.min.js');
         
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/mainadd.js');
-		$this->layout="//layouts/mainindex";
+		$this->layout="//layouts/mainadd";
 		$this->render('add' );//,array("classlvl1"=>$classlvl1,"addtype"=>$addtype));
 	}
 
