@@ -152,14 +152,58 @@ html,body,div.index-search-form-container, body div.container{
 	height: 20px; 
 	/* width and height can be anything, as long as they're equal */
 }
-.user-popover-content ul{
+.popover-user-content ul{
     list-style: none;
 }
-.user-popover-content{
-    width: 300px;
+.popover-user-content{
+    width: 100%px;
 }
 .popover {
 max-width: 300px;
-.popover.bottom > .arrow{
-    display: none;
+}
+/*.popover > .arrow{
+    display: none !important;
+}*/
+/*[data-style=primary] + .popover {background:  #E74C3C; border-radius: 8px;}*/
+.popover-user{
+    background:  #222;
+    color: #fff;
+    border-radius: 0px;
+    top: 44px !important;
+    border-top: solid 1px #222;
+    width: 300px !important;
+    max-width: 400px;
+    overflow: hidden;
+}
+.popover-user  .popover-user-content{
+    color:#fff;
+}
+.popover-user .popover-inner, .popover-user .popover-content{
+    width: 100%;
+    padding: 0px;
+}
+.popover-user-content ul, .popover-user-content li{
+    margin: 0;
+    padding: 0;
+}
+.popover-user-content li a{
+    display: inline-block;
+    width: 96%;
+    margin: 3%;
+    text-decoration: none;
+    color: #a8afb5;
+}
+.popover-user-content li{
+    padding: 3px 0px 3px 0px;
+    border-left: 8px solid #222;
+    border-right: 8px solid #222;
+    border-top: solid 1px #191c20;
+    border-bottom: solid 1px #191c20;
+}
+.popover-user-content li:hover{
+    /*padding: 3%;*/
+    padding: 3px 0px 3px 0px;
+    border-left: solid 8px #BE1414;
+    border-right: solid 8px #BE1414;
+    background:#191c20; //#202429;
 }

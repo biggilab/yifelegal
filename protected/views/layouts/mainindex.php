@@ -32,15 +32,12 @@
         </button>
         <div class="container">
             <div class="navbar-header" style=" float: none; text-align: center">
-                <a tabindex="0" class="toggle navbar-right navbar-toggle" id="user-icn-toggle" data-toggle="popover" data-placement="bottom" >
-                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
-                </a>
                 <?php
                     if(!Yii::app()->user->isGuest)
                     {
-//                        echo    '<a  class="navbar-toggle navbar-right" data-toggle="collapse" data-target=".navbar-collapse">
-//                                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
-//                                </a>';
+                        echo    '<a tabindex="0" class="toggle navbar-right navbar-toggle" id="user-icn-toggle" data-toggle="popover" data-placement="bottom" data-style="primary" data-trigger="focus">
+                    <span class="glyphicon glyphicon-user" style="color:white;"></span>
+                </a>';
                     }
 					else
 					{
@@ -93,12 +90,20 @@
     </div>
     <div class="sidr-overlay sidr-overlay-fixed"></div>
     <div id="usr-icn-cont" style="display:none;">
-        <div class="user-popover-content">
+        <div class="popover-user-content">
             <ul>
                 <li>
-                    <span class="glyphicon glyphicon-plane"></span>
-                    Logout
+                    <a href="<?php echo Yii::app()->createUrl("mainusers/logout")?>">
+                        <span class="glyphicon glyphicon-plane"></span>
+                        Logout
+                    </a>
                 </li>
+<!--                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-plane"></span>
+                        Logout
+                    </a>
+                </li>-->
             </ul>
         </div>
     </div>
@@ -126,8 +131,10 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery.s
         html:true,
 //        title : 'Default title value',
         content: $("#usr-icn-cont").html(),
+        template: '<div class="popover popover-user"><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
         
     });
+    
       $('#simple-menu').sidr({
       side: 'left',
       
