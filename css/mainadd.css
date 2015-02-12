@@ -11,7 +11,7 @@ and open the template in the editor.
 /*this is copied from mainindex view which was missplaced*/
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {
-
+ 
 }
 
 /* Extra Small Devices, Phones */ 
@@ -106,8 +106,9 @@ div#step_menu_container ul {
     background: #C00000;
 }
 .btn-next:active,.btn-next:hover{
-    background: #EF0E0E;
+    background: #DF0101;
     border: solid 1px #C00000;
+    color: #FFF;
 }
 .btn-back:active,.btn-back:hover{
    background: #CECECE;
@@ -130,12 +131,12 @@ textArea[name=description]{
     border: solid 1px #ccc;
     width: 80%;
     padding: 2%;
-    border-left: solid 1px #EF0E0E !important;
-    border-right: solid 1px #EF0E0E !important;
+/*    border-left: solid 1px #EF0E0E !important;
+    border-right: solid 1px #EF0E0E !important;*/
     min-height: 80px;
     max-height: 200px;
 }
-input:focus, .category-input:focus ,textArea:focus, {
+input:focus, .category-input:focus ,textArea:focus {
   outline: none !important;
   /*outline: 5px auto #CECECE;*/
   outline-offset: -2px;
@@ -161,16 +162,20 @@ div.bootstrap-switch-wrapper{
     line-height: 40px;
     padding-left: 2%;
     font-weight: bold;
-    border-left: solid 1px #EF0E0E !important;
-    border-right: solid 1px #EF0E0E !important;
+/*    border-left: solid 1px #EF0E0E !important;
+    border-right: solid 1px #EF0E0E !important;*/
 }
-.col-xs-3 label, .col-xs-4 label{
+.section label{
     height: 40px;
     line-height: 40px;
     font-size: 24px;
     font-weight: normal;
     color: #C00000;
+    /*margin-bottom: 6px;*/
     /*font-family:  sans-serif;*/
+}
+.section div.clearfix{
+    margin-bottom: 10px;
 }
 .bootstrap-switch-handle-on{
     color: black;
@@ -280,8 +285,26 @@ display: table-cell;
         font-size: 14px;
     }
     
-    div.section .row-fluid .col-xs-3{
+    div.section .row-fluid .col-xs-3, div.section .row-fluid .col-xs-4{
         text-align: left;
+        overflow: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    div.section .row-fluid .col-xs-9, div.section .row-fluid .col-xs-8{
+/*        text-align: left;
+        overflow: hidden;
+        padding-left: 0px;*/
+        padding-right: 0px;
+    }
+    div.section .row-fluid  input[type=text], div.section .row-fluid select#condition-select, div.section .row-fluid textarea{
+        width: 100%;
+        font-weight: normal;
+        font-size: inherit;
+    }
+    .description_cont, .phone-cont, .phone-cont label, .description_cont label{
+        text-align: left;
+        font-size: 14px;
     }
 }
 
@@ -306,11 +329,30 @@ display: table-cell;
         width: 15%;
 
     }
-    div.section .row-fluid .col-xs-3 label, div.section .row-fluid .col-xs-4 label{
+    .div.section .row-fluid .col-xs-3 label, div.section .row-fluid .col-xs-4 label{
         font-size: 24px;
     }
-    div.section .row-fluid .col-xs-3{
+    div.section .row-fluid .col-xs-3, div.section .row-fluid .col-xs-4{
         text-align: right;
+        padding-left:15px;
+        padding-right:15px;
+        
+    }
+    div.section .row-fluid .col-xs-9, div.section .row-fluid .col-xs-8{
+/*        text-align: left;
+        overflow: hidden;
+        padding-left: 0px;*/
+        padding-right: 15px;
+    }
+    div.section .row-fluid  input[type=text], div.section .row-fluid select#condition-select{
+        width: 80%;
+        font-weight: normal;
+        font-size: inherit;
+    }
+    
+    .description_cont, .phone-cont, .phone-cont label, .description_cont label{
+        text-align: right;
+        font-size: 24px;
     }
 }
 

@@ -52,7 +52,7 @@
                 </div>
             </div>
                 </div>
-    <div class="container" style="padding-bottom: 80px; padding-top: 20px;" >
+    <div class="row" style="padding-bottom: 80px; padding-top: 20px;" >
         <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
             'links'=>$this->breadcrumbs,

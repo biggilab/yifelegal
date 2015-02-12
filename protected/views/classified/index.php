@@ -1,5 +1,5 @@
 <?php
-/* @var $this adminController */
+/* @var $this classifiedController */
 
 $this->pageTitle=Yii::app()->name;
 //

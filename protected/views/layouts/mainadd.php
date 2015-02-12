@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.sidr.dark.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.mainindex.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.mainadd.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@
             </ul>
         </div>
     </div>
-    <div class="container" style="padding-bottom: 80px; padding-top: 20px;" >
+    <div class="row" style="padding-bottom: 80px; padding-top: 20px;" >
         <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
             'links'=>$this->breadcrumbs,

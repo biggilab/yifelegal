@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 
-<div class="row-fluid classification_container" style="margin-top: 40px;">
+<div class="row-fluid classification_container">
     <div id="fullpage" class="col-xs-12">
         <form class="form" id="adform" method="post" action="<?php echo Yii::app()->createUrl('classified/Addnewclassified'); ?>">
             <div class="row-fluid">
@@ -23,7 +23,7 @@ $this->pageTitle=Yii::app()->name;
                             <?php $clas= Classified::model()->findByPk(63);
 //                            $clas->create_date= new CDbExpression('NOW()');
 //                            $clas->save();
-                            echo $clas->create_date."date";//new CDbExpression('NOW()');?>
+                           ?>
                             <h3>Select category</h3>
                                 <?php
                                     $model = CatLvl1::model()->findAll();
@@ -78,10 +78,10 @@ $this->pageTitle=Yii::app()->name;
                             <input type="text" class="section2-input-text" placeholder="Price" name="price" id="price"/>
                         </div>
                         <div class="clearfix"></div> 
-                        <div class="col-xs-3 text-right">
+                        <div class="col-xs-4 col-sm-3 text-right">
                             <label>Negotiable</label>
                         </div>
-                        <div class="col-xs-9">
+                        <div class="col-xs-8 col-sm-9">
                             <input id="negotiable" class="checkbox-switch" type="checkbox" name="negotiable"  data-on-text='Yes' data-on-color="danger" data-off-text='No'>
                         </div>
                         <div class="clearfix"></div> 
@@ -146,17 +146,17 @@ $this->pageTitle=Yii::app()->name;
                             <i style="color: #000000; display:block; font-weight: normal;">All inputs with red lines are required.</i>
                             <span class='msg-box'>dasda</span>
                         </div>
-                        <div class="col-xs-4 text-right">
+                        <div class="col-xs-12 col-sm-4 text-right description_cont">
                             <label>Description</label>
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-12 col-sm-8">
                             <textarea id="description" name="description" placeholder="Add more description to your Post"></textarea>
                         </div>
                         <div class="clearfix"></div> 
-                        <div class="col-xs-4 text-right">
+                        <div class="col-xs-12 col-sm-4 text-right phone-cont">
                             <label>Phone</label>
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-12 col-sm-8">
                             <input type="text" class="section2-input-text" placeholder="phone" name="phone" id="phone"/>
                         </div>
                         <div class="clearfix"></div>
@@ -214,6 +214,7 @@ $this->pageTitle=Yii::app()->name;
             <input type="hidden" name="classified_id" id="classified_id_img" value="0"/>
         </form>
     </div>
+    <div class="clearfix"></div>
 </div>
 <!-- Button trigger modal -->
 <div id="overlay-screen-tin" class="overlay-tint">

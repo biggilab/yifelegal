@@ -1,8 +1,8 @@
-<div class="row" style="padding-top: 100px;">
-    <div class="container col-xs-12 col-sm-7 col-md-8  " style="">
+<div class="row-fluid" style="padding-top: 100px;">
+    <div class="col-xs-12 col-sm-7 col-md-8 hidden-sm  " style="">
         <img class="img-responsive" src='<?php echo Yii::app()->baseUrl."/images/yifelegal_logo_1_600X200.png"; ?>' />
     </div>
-    <div class="container col-xs-12 col-sm-5 col-md-4 gray-boarder-round" style="">
+    <div class="col-xs-12 col-sm-12 col-md-4 gray-boarder-round" style="">
         <h3> Signup User</h3>
         <div style="margin: 0 auto; padding: 0px 4px 0px 4px;">
             <form action="#" method="post" class="reg_form" id="reg_form">
@@ -17,7 +17,7 @@
                 <div class="row margin-bottom-8px">
                     <div class="col-xs-4 text-right">First name</div>
                     <div class="col-xs-8 reg_firstname">
-                        <input class=" round-corners-8px form-control" type="text" name="firstname" id="reg_firstname" placeholder="First name"/>
+                        <input class="large round-corners-8px form-control" type="text" name="firstname" id="reg_firstname" placeholder="First name"/>
                     </div>
                 </div>
                 <div class="row margin-bottom-8px">
@@ -48,6 +48,7 @@
             </form>
         </div>
     </div>
+    <div class="clearfix"></div>
 </div>
 <script type="text/javascript">
 Registeruserurl = "<?php echo $this->createUrl(Yii::app()->baseUrl."/mainusers/signupsubmit") ?>";

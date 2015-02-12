@@ -39,6 +39,18 @@ class ClassifiedController extends Controller
              'pages'=>$pages
          ));
     }
+    public function actionView()
+    {
+        $this->layout="//layouts/mainindex";
+        if(isset($_GET["id"]))
+        {
+            $model = Classified::model()->findByPk($_GET["id"]);
+            Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/classified.view.css');
+            $this->render("view", array(
+                "model"=>$model
+            ));
+        }
+    }
     public function actionUploadAdImage()
     {
         if(isset($_FILES["img"]))

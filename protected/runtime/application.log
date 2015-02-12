@@ -27,3 +27,43 @@ Stack trace:
 REQUEST_URI=/index.php?r=Main/login
 HTTP_REFERER=http://www.biggilab.co/index.php
 ---
+2015/02/08 10:49:20 [info] [application] {"lvl":"2","id":"3"}
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (239)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/02/08 12:52:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "iview".' in /Library/WebServer/Documents/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(270): CController->missingAction('iview')
+#1 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('iview')
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/ivie...')
+#3 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=classified/iview&id=56
+---
+2015/02/08 13:09:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "iview".' in /Library/WebServer/Documents/yii/framework/web/CController.php:483
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(270): CController->missingAction('iview')
+#1 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('iview')
+#2 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('classified/ivie...')
+#3 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /Library/WebServer/Documents/yifelegal/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=classified/iview&id=56
+---
+2015/02/10 13:16:19 [error] [php] Trying to get property of non-object (/Library/WebServer/Documents/yifelegal/protected/views/classified/view.php:9)
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/CController.php(869): ClassifiedController->renderFile()
+#1 /Library/WebServer/Documents/yii/framework/web/CController.php(782): ClassifiedController->renderPartial()
+#2 /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php(51): ClassifiedController->render()
+#3 /Library/WebServer/Documents/yii/framework/web/actions/CInlineAction.php(49): ClassifiedController->actionView()
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Library/WebServer/Documents/yii/framework/web/CController.php(286): ClassifiedController->runAction()
+#6 /Library/WebServer/Documents/yii/framework/web/CController.php(265): ClassifiedController->runActionWithFilters()
+#7 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): ClassifiedController->run()
+#8 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Library/WebServer/Documents/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /Library/WebServer/Documents/yifelegal/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=classified/view&id=56
+in /Library/WebServer/Documents/yifelegal/protected/views/classified/view.php (9)
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (51)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
