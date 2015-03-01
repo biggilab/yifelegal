@@ -1,3 +1,5 @@
+@import "baseconfig";
+/*@import "basic";*/
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -51,16 +53,16 @@ div#step_menu_container ul li a h3{
 }
 div#step_menu_container ul li a.active_{
     
-    background:   #DD1144;
+    background:   $color-yif-dark-red;
     padding: 7px;
-    color: #fff;
+    color: $color-button-text-white;
 	border-radius: 50%;
 }
 div#step_menu_container ul li a{
     padding: 2px 0px;
-    background:  #EFF4FA;
+    background:  $color-very-light-gray;
     padding: 7px;
-    color:  #002a80;
+    color:  $color-base-text;
 	border-radius: 50%;
 }
 div#step_menu_container{
@@ -87,52 +89,53 @@ div#step_menu_container ul {
 .category-input{
     margin-left: 2%;
     padding-left: 2%;
-    border: solid 1px #ccc;
+    border: solid 1px $color-dark-gray;
 }
 .btn-back , .btn-next{
-    border: solid 1px #ccc;
-    color: #000000;
+    border: solid 1px $color-dark-gray;
+    color: $color-base-text;
     width: 15%;
     margin: 1%;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-box-border-radius: 30px;
-    background: #EFEFEF;
+    background: $color-light-gray;
 }
 .btn-next{
-    border: solid 1px #EF0E0E;
-    color: #FFF;
+    border: solid 1px $color-yif-light-red;
+    color: $color-button-text-white;
     /*width: 15%;*/
-    background: #C00000;
+    background: $color-yif-dark-red;
 }
 .btn-next:active,.btn-next:hover{
-    background: #DF0101;
-    border: solid 1px #C00000;
-    color: #FFF;
+    background: $color-yif-light-red;
+    border: solid 1px $color-yif-dark-red;
+    color: $color-button-text-white;
 }
 .btn-back:active,.btn-back:hover{
-   background: #CECECE;
+   background: $color-dark-gray;
+   color: $color-base-text;
 }
 .btn:focus, .category-input:focus {
-  outline: #CECECE;
-  outline: 5px auto #CECECE;
+  outline: $color-yif-dark-red;
+  outline: 5px auto $color-yif-dark-red;
   outline-offset: -2px;
 }
 select.btn{
-    border: solid 1px #ccc;
+    border: solid 1px $color-dark-gray;
     
 }
 input[type=text],select#condition-select{
     border-radius: 18px;
-    border: solid 1px #ccc;
+    border: solid 1px $color-dark-gray;
 }
 textArea[name=description]{
     border-radius: 18px;
-    border: solid 1px #ccc;
+    border: solid 1px $color-dark-gray;
     width: 80%;
     padding: 2%;
-/*    border-left: solid 1px #EF0E0E !important;
-    border-right: solid 1px #EF0E0E !important;*/
+/*    border-left: solid 1px $color-yif-light-red !important;
+    border-right: solid 1px $color-yif-light-red !important;*/
     min-height: 80px;
     max-height: 200px;
 }
@@ -145,13 +148,13 @@ div.bootstrap-switch-focused, div.bootstrap-switch-wrapper:focus{
     outline: none !important;
   /*outline: 5px auto #CECECE;*/
   outline-offset: -2px;
-  border-color: #C00000 !important;
-  box-shadow: inset 0 1px 1px #C00000 !important;
+  border-color: $color-yif-dark-red !important;
+  box-shadow: inset 0 1px 1px $color-yif-dark-red !important;
     
 }
 div.bootstrap-switch-wrapper{
-    border-left: solid 1px #EF0E0E !important;
-    border-right: solid 1px #EF0E0E !important;
+    border-left: solid 1px $color-yif-light-red !important;
+    border-right: solid 1px $color-yif-light-red !important;
 }
 .width-80{
     width: 80%;
@@ -162,15 +165,15 @@ div.bootstrap-switch-wrapper{
     line-height: 40px;
     padding-left: 2%;
     font-weight: bold;
-/*    border-left: solid 1px #EF0E0E !important;
-    border-right: solid 1px #EF0E0E !important;*/
+/*    border-left: solid 1px $color-yif-light-red !important;
+    border-right: solid 1px $color-yif-light-red !important;*/
 }
 .section label{
     height: 40px;
     line-height: 40px;
     font-size: 24px;
     font-weight: normal;
-    color: #C00000;
+    color: $color-yif-dark-red;
     /*margin-bottom: 6px;*/
     /*font-family:  sans-serif;*/
 }
@@ -181,14 +184,14 @@ div.bootstrap-switch-wrapper{
     color: black;
 }
 .section2-input-text-not-imp{
-    border-left: solid 1px #ccc !important;
-    border-right: solid 1px #ccc !important;
+    border-left: solid 1px $color-dark-gray !important;
+    border-right: solid 1px $color-dark-gray !important;
     
 }
 .empty-image-holder{
     min-height: 400px;
-    background: #FAFAFA;
-    border: solid 1px #ccc;
+    background: $color-very-light-gray;
+    border: solid 1px $color-dark-gray;
     border-radius: 8px;
     margin-bottom: 4%;
     
@@ -262,16 +265,16 @@ display: table-cell;
 }
 
 .alert-danger{
-    background-color: #FFBABA;
-    color: #D8000C;
+    background-color: $color-alert-background;
+    color: $color-yif-dark-red;
     font-weight: bold;
 }
 .cat-error, .cat-error:active, .cat-error:focus{
     //outline: outset;
-    border: solid 1px #D8000C !important;
+    border: solid 1px $color-yif-light-red !important;
     /*box-shadow: 0px 0px 17px #D8000C;*/
-     -webkit-box-shadow: inset 0 0 12px #D8000C;
-    box-shadow: inset 0 0 12px #D8000C;
+     -webkit-box-shadow: inset 0 0 12px $color-yif-dark-red;
+    box-shadow: inset 0 0 12px $color-yif-dark-red;
 }
 #img-place-holder img{
     margin: 7% 0 7% 0;

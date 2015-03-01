@@ -67,3 +67,9 @@ REQUEST_URI=/index.php?r=classified/view&id=56
 in /Library/WebServer/Documents/yifelegal/protected/views/classified/view.php (9)
 in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (51)
 in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/03/01 10:22:34 [info] [application] {"lvl":"2","id":"2"}
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (251)
+in /Library/WebServer/Documents/yifelegal/index.php (13)
+2015/03/01 10:22:37 [info] [application] {"lvl":"2","id":"1"}
+in /Library/WebServer/Documents/yifelegal/protected/controllers/ClassifiedController.php (251)
+in /Library/WebServer/Documents/yifelegal/index.php (13)

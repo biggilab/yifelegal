@@ -1,34 +1,35 @@
+@import "baseconfig";
 ul.pagination .first, ul.pagination .last {
 display: none;
 }
 ul.pagination > li > a{
-    color: #C00000;
+    color: $color-yif-dark-red;
 }
 ul.pagination > li > a:hover{
-    color: #C00000;
+    color: $color-yif-dark-red;
 }
 ul.pagination > li.active >a{
-    background: #C00000;
-    border: solid 1px #EF0E0E;
+    background: $color-yif-dark-red;
+    border: solid 1px $color-yif-light-red;
 }
 ul.pagination > li.active >a:hover{
-    background: #EF0E0E;
-    border: solid 1px #C00000;
+    background: $color-yif-light-red;
+    border: solid 1px $color-yif-dark-red;
 }
 div.filter-container{
      padding-top: 1.5%;
 }
 div.content-container{
-    border-left: solid 1px #ccc;
+    border-left: solid 1px $color-dark-gray;
     padding-top: 1.5%;
-    background: #fff;
+    background: $color-button-text-white;
 }
 div.image-cel-cont{
   
 }
 div.results-container{
-    border-left: solid 1px #ccc;
-    border-right: solid 1px #ccc;
+    border-left: solid 1px $color-dark-gray;
+    border-right: solid 1px $color-dark-gray;
 
 	
 	background: #EDEDED;

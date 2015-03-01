@@ -1,3 +1,5 @@
+@import 'baseconfig';
+
 button:focus,button:active,input:active,input:focus,textarea:focus,textarea:active{
     outline: none;
 }
@@ -5,7 +7,7 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #555;
+	color: $color-base-text;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
         padding-top: 50px;
